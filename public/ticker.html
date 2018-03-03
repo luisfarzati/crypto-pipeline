@@ -1,0 +1,79 @@
+<style>
+  body {
+    margin: 15px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  input {
+    font-size: 1em;
+    padding: 8px;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
+
+  .ticker-item {
+    transition: background-color 1s ease-in;
+    background-color: white;
+    border: 1px solid gainsboro;
+    border-radius: 4px;
+    width: 100px;
+    height: 80px;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .ticker-item.highlight {
+    transition: background-color 0s;
+    background-color: #a3faa7;
+  }
+</style>
+<div>
+  <input id="filter" type="text" autocomplete="off" placeholder="Filter by pair">
+  <div id="ticker" class="ticker-panel"></div>
+</div>
+<script>
+  const pairs = new Map()
+
+  const tickerPanel = document.getElementById("ticker")
+
+  document.getElementById('filter').addEventListener('keyup', ({ target }) => {
+    const text = (target.value || '').toLowerCase()
+    document.querySelectorAll('.ticker-item').forEach(({ id, style }) => {
+      style.display = (
+        id.toLowerCase().includes(text) ? 'inline-block' : 'none'
+      )
+    })
+  })
+
+  const createTicker = (id) => {
+    const div = document.createElement('div')
+    div.id = id
+    div.className = 'ticker-item'
+    tickerPanel.appendChild(div)
+    return div
+  }
+
+  const render = () => {
+    pairs.forEach((value, key) => {
+      const elem = document.getElementById(key) || createTicker(key)
+      const [int, dec] = value.price.split('.')
+      elem.innerHTML = `${key}<br>${int}.${dec.slice(0, 4)}`
+
+      if (!elem.dataset.previousValue || elem.dataset.previousValue !== value.price) {
+        elem.classList.add("highlight")
+        elem.dataset.previousValue = value.price
+        setTimeout(() => elem.classList.remove("highlight"), 100)
+      }
+    })
+  }
+
+  const ws = new WebSocket(`ws://${location.hostname}:9191`)
+  ws.addEventListener('message', (m) => {
+    const tickers = JSON.parse(m.data)
+    tickers.forEach(t => pairs.set(t.pair, t))
+    render()
+  })
+</script>
