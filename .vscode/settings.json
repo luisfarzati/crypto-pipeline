@@ -3,5 +3,8 @@
   "prettier.requireConfig": true,
   "editor.formatOnSave": true,
   "tslint.autoFixOnSave": true,
-  "npm.packageManager": "yarn"
+  "npm.packageManager": "yarn",
+  "editor.rulers": [
+    120
+  ]
 }

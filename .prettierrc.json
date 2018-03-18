@@ -1,5 +1,5 @@
 {
   "parser": "typescript",
-  "semi": false,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "printWidth": 120
 }
