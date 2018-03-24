@@ -1,26 +1,23 @@
 import * as envalid from "envalid";
-import { WebsocketClient } from "gdax";
+import * as WebSocket from "uws";
 import { envalidJsonArray } from "../../utils";
 import { createLogger } from "../../services/logger";
 
-const DEFAULT_SOURCE_NAME = "gdax";
-const DEFAULT_CHANNELS = ["ticker"];
+const DEFAULT_WS_URL = "wss://stream.binance.com:9443/ws/!ticker@arr";
+const DEFAULT_SOURCE_NAME = "binance";
 
 const configurationVars = {
   SOURCE_NAME: envalid.str({
     default: DEFAULT_SOURCE_NAME
   }),
-  CHANNELS: envalidJsonArray({
-    default: DEFAULT_CHANNELS,
-    example: '["ticker"]'
-  }),
-  PAIRS: envalidJsonArray({
-    example: '["BTC-USD", "ETH-BTC"]'
+  WS_URL: envalid.url({
+    default: DEFAULT_WS_URL,
+    example: DEFAULT_WS_URL
   })
 };
 
 /**
- * Connect to the GDAX WebSocket API.
+ * Connect to the Binance WebSocket API.
  * @param handler callback to invoke for every received message
  * @param environment
  * @param isRetry
@@ -31,13 +28,14 @@ const connect: SourceConnectFunction = (handler, environment = process.env, isRe
   const logger = createLogger(`${env.SOURCE_NAME}.socket`);
 
   if (!isRetry) {
-    logger.info(`connecting to GDAX`);
-    logger.info(`will subscribe to channels ${env.CHANNELS} for pairs: ${env.PAIRS}`);
+    logger.info(`connecting to Binance`);
+    logger.info(`will subscribe to channel !ticker@arr for all pairs`);
   }
 
-  const ws = new WebsocketClient(env.PAIRS, undefined, undefined, {
-    channels: env.CHANNELS
-  });
+  const ws = new WebSocket(env.WS_URL);
+
+  // TODO: remove hardcoding
+  const CHANNEL_PAIR_REGEX = /BTC|USDT?$/;
 
   const connectionInitTime = Date.now();
   ws.on("open", () => {
@@ -51,7 +49,12 @@ const connect: SourceConnectFunction = (handler, environment = process.env, isRe
   ws.on("error", (err: any) => {
     logger.error(`${err.message} -- Reason: ${err.reason || "unknown"}`);
   });
-  ws.on("message", handler);
+  ws.on("message", (message: string) => {
+    const events = JSON.parse(message) as BinanceTickerMessage[];
+
+    // TODO: remove hardcoding
+    events.filter((event) => event.s.match(CHANNEL_PAIR_REGEX)).forEach(handler);
+  });
 };
 
 export { connect };

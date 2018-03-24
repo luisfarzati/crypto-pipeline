@@ -1,61 +1,55 @@
-import * as envalid from "envalid";
 import * as eep from "eep";
 import { createLogger } from "../services/logger";
 import { createRedis } from "../services/redis";
-import { GdaxAggregated, ExchangeAggregated } from "./types";
-import { Big } from "big.js";
-import { createGdaxStats } from "./aggr-gdax";
+import { ExchangeAggregated } from "./types";
 import { toSecond, toMinute } from "./aggr-utils";
+import { createGdaxStats } from "./aggr-gdax";
 import { createOkexStats } from "./aggr-okex";
+import { createBinanceStats } from "./aggr-binance";
 
 const logger = createLogger("1sec");
 const redis = createRedis();
+
+const EXPIRATION_SECONDS = 60 * 60 * 24 * 10;
+
+const EXPIRATION_MINUTES = 60 * 60 * 24 * 30;
 
 const createWindow = (aggregatorFn: any, windowTime: number, unit: string, redisKeyPrefix: string) => {
   const window = eep.EventWorld.make()
     .windows()
     .monotonic(aggregatorFn(unit), new eep.CountingClock());
 
+  const expirationSeconds = unit === "s" ? EXPIRATION_SECONDS : EXPIRATION_MINUTES;
+
   window.on("emit", (v: Map<string, ExchangeAggregated>) => {
+    const p = redis.pipeline();
     for (const [, stats] of v) {
       const time = stats.time;
-      redis.set(`${redisKeyPrefix}.${stats.pair}.${windowTime}${unit}.${time}`, JSON.stringify(stats));
+      const key = `${redisKeyPrefix}.${stats.pair}.${windowTime}${unit}.${time}`;
+      p.set(key, JSON.stringify(stats));
+      p.expire(key, expirationSeconds);
       const gt = new Date(time).toLocaleTimeString();
       logger.info(redisKeyPrefix, gt, stats.pair, stats.timestamps.length, stats.count);
     }
+    p.exec();
   });
 
   return window;
 };
 
-// createGdaxStats("s");
-// const gdaxWindow1m = eep.EventWorld.make()
-//   .windows()
-//   .monotonic(createGdaxStats("m"), new eep.CountingClock());
-// gdaxWindow1m.on("emit", (v: Map<string, GdaxAggregated>) => {
-//   for (const [, stats] of v) {
-//     const time = stats.time;
-//     redis.set(`gdax.1m.${time}`, JSON.stringify(stats));
-//     const gt = new Date(time).toLocaleTimeString();
-//     logger.info(gt, stats.pair, stats.timestamps.length, stats.count);
-//   }
-// });
-
-// setInterval(gdaxWindow1s.tick, 3000);
-
-// const okexWindow1s = eep.EventWorld.make()
-//   .windows()
-//   .monotonic(createOkexStats("s"), new eep.CountingClock());
-
 const gdax1s = createWindow(createGdaxStats, 1, "s", "gdax");
 const gdax1m = createWindow(createGdaxStats, 1, "m", "gdax");
 const okex1s = createWindow(createOkexStats, 1, "s", "okex");
 const okex1m = createWindow(createOkexStats, 1, "m", "okex");
+const binance1s = createWindow(createBinanceStats, 1, "s", "binance");
+const binance1m = createWindow(createBinanceStats, 1, "m", "binance");
 
 let lastSecondGdax: number;
 let lastMinuteGdax: number;
 let lastSecondOkex: number;
 let lastMinuteOkex: number;
+let lastSecondBinance: number;
+let lastMinuteBinance: number;
 
 logger.info("pair", "msg ts", "sec ts", "min ts", "time");
 
@@ -74,6 +68,11 @@ const execute: SpoutMessageHandler = async (pattern, channel, message: string) =
   } else if (m.$source === "okex") {
     const gm = m as SpoutMessage & OkexSpotPriceMessage;
     t = gm.data.timestamp;
+    ts = toSecond(t);
+    tm = toMinute(t);
+  } else if (m.$source === "binance") {
+    const gm = m as SpoutMessage & BinanceTickerMessage;
+    t = gm.E;
     ts = toSecond(t);
     tm = toMinute(t);
   } else {
@@ -103,6 +102,17 @@ const execute: SpoutMessageHandler = async (pattern, channel, message: string) =
     }
     okex1s.enqueue(m);
     okex1m.enqueue(m);
+  } else if (m.$source === "binance") {
+    if (ts !== lastSecondBinance) {
+      binance1s.tick();
+      lastSecondBinance = ts;
+    }
+    if (tm !== lastMinuteBinance) {
+      binance1m.tick();
+      lastMinuteBinance = tm;
+    }
+    binance1s.enqueue(m);
+    binance1m.enqueue(m);
   }
 };
 

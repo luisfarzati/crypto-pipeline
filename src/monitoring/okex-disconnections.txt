@@ -1,0 +1,574 @@
+2018-03-17T19:18:17.019Z info   okex.socket disconnected
+2018-03-17T19:18:18.352Z info   okex.socket connected in 886ms
+2018-03-17T19:23:18.702Z info   okex.socket disconnected
+2018-03-17T19:23:20.468Z info   okex.socket connected in 1455ms
+2018-03-17T19:28:20.738Z info   okex.socket disconnected
+2018-03-17T19:28:22.074Z info   okex.socket connected in 1003ms
+2018-03-17T19:33:22.486Z info   okex.socket disconnected
+2018-03-17T19:33:23.851Z info   okex.socket connected in 1000ms
+2018-03-17T19:38:24.119Z info   okex.socket disconnected
+2018-03-17T19:38:25.324Z info   okex.socket connected in 877ms
+2018-03-17T19:43:25.610Z info   okex.socket disconnected
+2018-03-17T19:43:27.026Z info   okex.socket connected in 1084ms
+2018-03-17T19:48:27.309Z info   okex.socket disconnected
+2018-03-17T19:48:28.797Z info   okex.socket connected in 1163ms
+2018-03-17T19:53:29.078Z info   okex.socket disconnected
+2018-03-17T19:53:30.307Z info   okex.socket connected in 902ms
+2018-03-17T19:58:30.580Z info   okex.socket disconnected
+2018-03-17T19:58:33.514Z info   okex.socket connected in 2457ms
+2018-03-17T20:03:33.789Z info   okex.socket disconnected
+2018-03-17T20:03:35.390Z info   okex.socket connected in 1184ms
+2018-03-17T20:08:35.840Z info   okex.socket disconnected
+2018-03-17T20:08:37.275Z info   okex.socket connected in 1134ms
+2018-03-17T20:13:37.717Z info   okex.socket disconnected
+2018-03-17T20:13:38.975Z info   okex.socket connected in 913ms
+2018-03-17T20:18:39.248Z info   okex.socket disconnected
+2018-03-17T20:18:40.617Z info   okex.socket connected in 1057ms
+2018-03-17T20:23:40.886Z info   okex.socket disconnected
+2018-03-17T20:23:42.186Z info   okex.socket connected in 998ms
+2018-03-17T20:28:42.466Z info   okex.socket disconnected
+2018-03-17T20:28:43.967Z info   okex.socket connected in 1024ms
+2018-03-17T20:33:44.252Z info   okex.socket disconnected
+2018-03-17T20:33:45.684Z info   okex.socket connected in 1109ms
+2018-03-17T20:38:46.080Z info   okex.socket disconnected
+2018-03-17T20:38:47.283Z info   okex.socket connected in 888ms
+2018-03-17T20:43:47.561Z info   okex.socket disconnected
+2018-03-17T20:43:48.988Z info   okex.socket connected in 1113ms
+2018-03-17T20:48:49.276Z info   okex.socket disconnected
+2018-03-17T20:48:50.864Z info   okex.socket connected in 1238ms
+2018-03-17T20:53:51.151Z info   okex.socket disconnected
+2018-03-17T20:53:52.293Z info   okex.socket connected in 839ms
+2018-03-17T20:58:52.564Z info   okex.socket disconnected
+2018-03-17T20:58:53.694Z info   okex.socket connected in 825ms
+2018-03-17T21:03:54.046Z info   okex.socket disconnected
+2018-03-17T21:03:55.204Z info   okex.socket connected in 852ms
+2018-03-17T21:08:55.511Z info   okex.socket disconnected
+2018-03-17T21:08:56.789Z info   okex.socket connected in 966ms
+2018-03-17T21:13:57.061Z info   okex.socket disconnected
+2018-03-17T21:13:58.263Z info   okex.socket connected in 896ms
+2018-03-17T21:18:58.544Z info   okex.socket disconnected
+2018-03-17T21:18:59.747Z info   okex.socket connected in 837ms
+2018-03-17T21:24:00.019Z info   okex.socket disconnected
+2018-03-17T21:24:01.300Z info   okex.socket connected in 871ms
+2018-03-17T21:29:01.589Z info   okex.socket disconnected
+2018-03-17T21:29:02.832Z info   okex.socket connected in 867ms
+2018-03-17T21:34:03.259Z info   okex.socket disconnected
+2018-03-17T21:34:04.554Z info   okex.socket connected in 963ms
+2018-03-17T21:39:04.940Z info   okex.socket disconnected
+2018-03-17T21:39:06.374Z info   okex.socket connected in 1114ms
+2018-03-17T21:44:06.816Z info   okex.socket disconnected
+2018-03-17T21:44:07.950Z info   okex.socket connected in 835ms
+2018-03-17T21:49:08.282Z info   okex.socket disconnected
+2018-03-17T21:49:09.544Z info   okex.socket connected in 944ms
+2018-03-17T21:54:09.953Z info   okex.socket disconnected
+2018-03-17T21:54:11.215Z info   okex.socket connected in 942ms
+2018-03-17T21:59:11.633Z info   okex.socket disconnected
+2018-03-17T21:59:12.874Z info   okex.socket connected in 921ms
+2018-03-17T22:04:13.159Z info   okex.socket disconnected
+2018-03-17T22:04:14.613Z info   okex.socket connected in 1085ms
+2018-03-17T22:09:14.899Z info   okex.socket disconnected
+2018-03-17T22:09:16.136Z info   okex.socket connected in 926ms
+2018-03-17T22:14:16.551Z info   okex.socket disconnected
+2018-03-17T22:14:17.864Z info   okex.socket connected in 993ms
+2018-03-17T22:19:18.151Z info   okex.socket disconnected
+2018-03-17T22:19:19.483Z info   okex.socket connected in 1022ms
+2018-03-17T22:24:19.761Z info   okex.socket disconnected
+2018-03-17T22:24:21.072Z info   okex.socket connected in 1008ms
+2018-03-17T22:29:21.463Z info   okex.socket disconnected
+2018-03-17T22:29:22.756Z info   okex.socket connected in 988ms
+2018-03-17T22:34:23.168Z info   okex.socket disconnected
+2018-03-17T22:34:24.489Z info   okex.socket connected in 991ms
+2018-03-17T22:39:24.918Z info   okex.socket disconnected
+2018-03-17T22:39:26.184Z info   okex.socket connected in 951ms
+2018-03-17T22:44:26.588Z info   okex.socket disconnected
+2018-03-17T22:44:27.887Z info   okex.socket connected in 998ms
+2018-03-17T22:49:28.230Z info   okex.socket disconnected
+2018-03-17T22:49:29.447Z info   okex.socket connected in 903ms
+2018-03-17T22:54:29.730Z info   okex.socket disconnected
+2018-03-17T22:54:30.992Z info   okex.socket connected in 957ms
+2018-03-17T22:59:31.410Z info   okex.socket disconnected
+2018-03-17T22:59:32.802Z info   okex.socket connected in 1069ms
+2018-03-17T23:04:33.158Z info   okex.socket disconnected
+2018-03-17T23:04:34.498Z info   okex.socket connected in 1033ms
+2018-03-17T23:09:34.769Z info   okex.socket disconnected
+2018-03-17T23:09:36.112Z info   okex.socket connected in 1019ms
+2018-03-17T23:14:36.397Z info   okex.socket disconnected
+2018-03-17T23:14:37.829Z info   okex.socket connected in 988ms
+2018-03-17T23:19:38.308Z info   okex.socket disconnected
+2018-03-17T23:19:39.469Z info   okex.socket connected in 847ms
+2018-03-17T23:24:39.875Z info   okex.socket disconnected
+2018-03-17T23:24:41.005Z info   okex.socket connected in 823ms
+2018-03-17T23:29:41.453Z info   okex.socket disconnected
+2018-03-17T23:29:42.594Z info   okex.socket connected in 832ms
+2018-03-17T23:34:42.921Z info   okex.socket disconnected
+2018-03-17T23:34:44.182Z info   okex.socket connected in 954ms
+2018-03-17T23:39:44.488Z info   okex.socket disconnected
+2018-03-17T23:39:45.698Z info   okex.socket connected in 890ms
+2018-03-17T23:44:46.058Z info   okex.socket disconnected
+2018-03-17T23:44:47.250Z info   okex.socket connected in 892ms
+2018-03-17T23:49:47.554Z info   okex.socket disconnected
+2018-03-17T23:49:48.967Z info   okex.socket connected in 1024ms
+2018-03-17T23:54:49.409Z info   okex.socket disconnected
+2018-03-17T23:54:50.602Z info   okex.socket connected in 889ms
+2018-03-17T23:59:50.874Z info   okex.socket disconnected
+2018-03-17T23:59:52.308Z info   okex.socket connected in 1024ms
+2018-03-18T00:04:52.648Z info   okex.socket disconnected
+2018-03-18T00:04:53.980Z info   okex.socket connected in 1029ms
+2018-03-18T00:09:54.329Z info   okex.socket disconnected
+2018-03-18T00:09:55.828Z info   okex.socket connected in 1189ms
+2018-03-18T00:14:56.098Z info   okex.socket disconnected
+2018-03-18T00:14:57.496Z info   okex.socket connected in 1066ms
+2018-03-18T00:19:57.979Z info   okex.socket disconnected
+2018-03-18T00:19:59.272Z info   okex.socket connected in 987ms
+2018-03-18T00:24:59.549Z info   okex.socket disconnected
+2018-03-18T00:25:00.990Z info   okex.socket connected in 1139ms
+2018-03-18T00:30:01.309Z info   okex.socket disconnected
+2018-03-18T00:30:02.620Z info   okex.socket connected in 992ms
+2018-03-18T00:35:02.907Z info   okex.socket disconnected
+2018-03-18T00:35:04.402Z info   okex.socket connected in 991ms
+2018-03-18T00:40:04.671Z info   okex.socket disconnected
+2018-03-18T00:40:06.004Z info   okex.socket connected in 1014ms
+2018-03-18T00:45:06.453Z info   okex.socket disconnected
+2018-03-18T00:45:07.785Z info   okex.socket connected in 1022ms
+2018-03-18T00:50:08.054Z info   okex.socket disconnected
+2018-03-18T00:50:09.522Z info   okex.socket connected in 986ms
+2018-03-18T00:55:09.794Z info   okex.socket disconnected
+2018-03-18T00:55:10.988Z info   okex.socket connected in 890ms
+2018-03-18T01:00:11.373Z info   okex.socket disconnected
+2018-03-18T01:00:12.602Z info   okex.socket connected in 924ms
+2018-03-18T01:05:12.871Z info   okex.socket disconnected
+2018-03-18T01:05:14.037Z info   okex.socket connected in 841ms
+2018-03-18T01:10:14.306Z info   okex.socket disconnected
+2018-03-18T01:10:15.567Z info   okex.socket connected in 952ms
+2018-03-18T01:15:15.977Z info   okex.socket disconnected
+2018-03-18T01:15:17.308Z info   okex.socket connected in 1015ms
+2018-03-18T01:20:17.594Z info   okex.socket disconnected
+2018-03-18T01:20:18.921Z info   okex.socket connected in 1022ms
+2018-03-18T01:25:19.330Z info   okex.socket disconnected
+2018-03-18T01:25:20.626Z info   okex.socket connected in 980ms
+2018-03-18T01:30:20.912Z info   okex.socket disconnected
+2018-03-18T01:30:22.160Z info   okex.socket connected in 943ms
+2018-03-18T01:35:22.435Z info   okex.socket disconnected
+2018-03-18T01:35:23.907Z info   okex.socket connected in 1024ms
+2018-03-18T01:40:24.178Z info   okex.socket disconnected
+2018-03-18T01:40:25.544Z info   okex.socket connected in 1049ms
+2018-03-18T01:45:26.023Z info   okex.socket disconnected
+2018-03-18T01:45:27.319Z info   okex.socket connected in 993ms
+2018-03-18T01:50:27.591Z info   okex.socket disconnected
+2018-03-18T01:50:28.850Z info   okex.socket connected in 953ms
+2018-03-18T01:55:29.126Z info   okex.socket disconnected
+2018-03-18T01:55:30.583Z info   okex.socket connected in 1005ms
+2018-03-18T02:00:30.867Z info   okex.socket disconnected
+2018-03-18T02:00:32.254Z info   okex.socket connected in 1003ms
+2018-03-18T02:05:32.540Z info   okex.socket disconnected
+2018-03-18T02:05:34.027Z info   okex.socket connected in 1004ms
+2018-03-18T02:10:34.315Z info   okex.socket disconnected
+2018-03-18T02:10:35.722Z info   okex.socket connected in 922ms
+2018-03-18T02:15:36.169Z info   okex.socket disconnected
+2018-03-18T02:15:37.562Z info   okex.socket connected in 1066ms
+2018-03-18T02:20:38.045Z info   okex.socket disconnected
+2018-03-18T02:20:39.479Z info   okex.socket connected in 1112ms
+2018-03-18T02:25:39.793Z info   okex.socket disconnected
+2018-03-18T02:25:41.252Z info   okex.socket connected in 1155ms
+2018-03-18T02:30:41.531Z info   okex.socket disconnected
+2018-03-18T02:30:42.914Z info   okex.socket connected in 1006ms
+2018-03-18T02:35:43.200Z info   okex.socket disconnected
+2018-03-18T02:35:44.327Z info   okex.socket connected in 822ms
+2018-03-18T02:40:44.637Z info   okex.socket disconnected
+2018-03-18T02:40:46.032Z info   okex.socket connected in 1085ms
+2018-03-18T02:45:46.610Z info   okex.socket disconnected
+2018-03-18T02:45:47.975Z info   okex.socket connected in 977ms
+2018-03-18T02:50:48.339Z info   okex.socket disconnected
+2018-03-18T02:50:49.654Z info   okex.socket connected in 1008ms
+2018-03-18T02:55:50.067Z info   okex.socket disconnected
+2018-03-18T02:55:51.481Z info   okex.socket connected in 1099ms
+2018-03-18T03:00:51.768Z info   okex.socket disconnected
+2018-03-18T03:00:53.011Z info   okex.socket connected in 863ms
+2018-03-18T03:05:53.419Z info   okex.socket disconnected
+2018-03-18T03:05:54.714Z info   okex.socket connected in 978ms
+2018-03-18T03:10:54.985Z info   okex.socket disconnected
+2018-03-18T03:10:56.248Z info   okex.socket connected in 956ms
+2018-03-18T03:15:56.520Z info   okex.socket disconnected
+2018-03-18T03:15:59.321Z info   okex.socket connected in 2355ms
+2018-03-18T03:20:59.591Z info   okex.socket disconnected
+2018-03-18T03:21:00.992Z info   okex.socket connected in 1024ms
+2018-03-18T03:26:01.361Z info   okex.socket disconnected
+2018-03-18T03:26:02.637Z info   okex.socket connected in 975ms
+2018-03-18T03:31:03.115Z info   okex.socket disconnected
+2018-03-18T03:31:04.411Z info   okex.socket connected in 979ms
+2018-03-18T03:36:04.787Z info   okex.socket disconnected
+2018-03-18T03:36:06.127Z info   okex.socket connected in 829ms
+2018-03-18T03:41:06.398Z info   okex.socket disconnected
+2018-03-18T03:41:07.758Z info   okex.socket connected in 986ms
+2018-03-18T03:46:08.077Z info   okex.socket disconnected
+2018-03-18T03:46:09.393Z info   okex.socket connected in 982ms
+2018-03-18T03:51:09.705Z info   okex.socket disconnected
+2018-03-18T03:51:10.969Z info   okex.socket connected in 959ms
+2018-03-18T03:56:11.242Z info   okex.socket disconnected
+2018-03-18T03:56:12.465Z info   okex.socket connected in 920ms
+2018-03-18T04:01:12.743Z info   okex.socket disconnected
+2018-03-18T04:01:13.905Z info   okex.socket connected in 859ms
+2018-03-18T04:06:14.316Z info   okex.socket disconnected
+2018-03-18T04:06:15.605Z info   okex.socket connected in 986ms
+2018-03-18T04:11:15.876Z info   okex.socket disconnected
+2018-03-18T04:11:17.286Z info   okex.socket connected in 991ms
+2018-03-18T04:16:17.566Z info   okex.socket disconnected
+2018-03-18T04:16:18.885Z info   okex.socket connected in 910ms
+2018-03-18T04:21:19.339Z info   okex.socket disconnected
+2018-03-18T04:21:20.555Z info   okex.socket connected in 908ms
+2018-03-18T04:26:20.827Z info   okex.socket disconnected
+2018-03-18T04:26:22.560Z info   okex.socket connected in 1433ms
+2018-03-18T04:31:22.988Z info   okex.socket disconnected
+2018-03-18T04:31:24.422Z info   okex.socket connected in 1129ms
+2018-03-18T04:36:24.771Z info   okex.socket disconnected
+2018-03-18T04:36:26.066Z info   okex.socket connected in 989ms
+2018-03-18T04:41:26.442Z info   okex.socket disconnected
+2018-03-18T04:41:27.876Z info   okex.socket connected in 1118ms
+2018-03-18T04:46:28.148Z info   okex.socket disconnected
+2018-03-18T04:46:29.445Z info   okex.socket connected in 997ms
+2018-03-18T04:51:29.725Z info   okex.socket disconnected
+2018-03-18T04:51:31.226Z info   okex.socket connected in 1023ms
+2018-03-18T04:56:31.669Z info   okex.socket disconnected
+2018-03-18T04:56:32.971Z info   okex.socket connected in 976ms
+2018-03-18T05:01:33.249Z info   okex.socket disconnected
+2018-03-18T05:01:34.569Z info   okex.socket connected in 922ms
+2018-03-18T05:06:34.912Z info   okex.socket disconnected
+2018-03-18T05:06:36.035Z info   okex.socket connected in 822ms
+2018-03-18T05:11:36.312Z info   okex.socket disconnected
+2018-03-18T05:11:37.579Z info   okex.socket connected in 959ms
+2018-03-18T05:16:37.848Z info   okex.socket disconnected
+2018-03-18T05:16:39.148Z info   okex.socket connected in 889ms
+2018-03-18T05:21:39.521Z info   okex.socket disconnected
+2018-03-18T05:21:40.832Z info   okex.socket connected in 990ms
+2018-03-18T05:26:41.126Z info   okex.socket disconnected
+2018-03-18T05:26:42.460Z info   okex.socket connected in 1025ms
+2018-03-18T05:31:42.729Z info   okex.socket disconnected
+2018-03-18T05:31:44.203Z info   okex.socket connected in 1024ms
+2018-03-18T05:36:44.471Z info   okex.socket disconnected
+2018-03-18T05:36:45.594Z info   okex.socket connected in 819ms
+2018-03-18T05:41:45.867Z info   okex.socket disconnected
+2018-03-18T05:41:47.340Z info   okex.socket connected in 1024ms
+2018-03-18T05:46:47.792Z info   okex.socket disconnected
+2018-03-18T05:46:49.087Z info   okex.socket connected in 991ms
+2018-03-18T05:51:49.362Z info   okex.socket disconnected
+2018-03-18T05:51:50.692Z info   okex.socket connected in 1019ms
+2018-03-18T05:56:51.048Z info   okex.socket disconnected
+2018-03-18T05:56:52.423Z info   okex.socket connected in 1019ms
+2018-03-18T06:01:52.812Z info   okex.socket disconnected
+2018-03-18T06:01:54.050Z info   okex.socket connected in 829ms
+2018-03-18T06:06:54.323Z info   okex.socket disconnected
+2018-03-18T06:06:55.641Z info   okex.socket connected in 1015ms
+2018-03-18T06:11:55.911Z info   okex.socket disconnected
+2018-03-18T06:11:57.385Z info   okex.socket connected in 1166ms
+2018-03-18T06:16:57.662Z info   okex.socket disconnected
+2018-03-18T06:16:58.991Z info   okex.socket connected in 1016ms
+2018-03-18T06:21:59.275Z info   okex.socket disconnected
+2018-03-18T06:22:00.681Z info   okex.socket connected in 866ms
+2018-03-18T06:27:01.076Z info   okex.socket disconnected
+2018-03-18T06:27:02.369Z info   okex.socket connected in 991ms
+2018-03-18T06:32:02.640Z info   okex.socket disconnected
+2018-03-18T06:32:03.975Z info   okex.socket connected in 1036ms
+2018-03-18T06:37:04.247Z info   okex.socket disconnected
+2018-03-18T06:37:05.578Z info   okex.socket connected in 1021ms
+2018-03-18T06:42:05.857Z info   okex.socket disconnected
+2018-03-18T06:42:07.328Z info   okex.socket connected in 1024ms
+2018-03-18T06:47:07.770Z info   okex.socket disconnected
+2018-03-18T06:47:08.942Z info   okex.socket connected in 855ms
+2018-03-18T06:52:09.215Z info   okex.socket disconnected
+2018-03-18T06:52:10.567Z info   okex.socket connected in 1047ms
+2018-03-18T06:57:11.018Z info   okex.socket disconnected
+2018-03-18T06:57:12.280Z info   okex.socket connected in 954ms
+2018-03-18T07:02:12.552Z info   okex.socket disconnected
+2018-03-18T07:02:14.021Z info   okex.socket connected in 1024ms
+2018-03-18T07:07:14.291Z info   okex.socket disconnected
+2018-03-18T07:07:15.774Z info   okex.socket connected in 1175ms
+2018-03-18T07:12:16.056Z info   okex.socket disconnected
+2018-03-18T07:12:17.363Z info   okex.socket connected in 993ms
+2018-03-18T07:17:17.814Z info   okex.socket disconnected
+2018-03-18T07:17:19.386Z info   okex.socket connected in 1109ms
+2018-03-18T07:22:19.689Z info   okex.socket disconnected
+2018-03-18T07:22:21.226Z info   okex.socket connected in 1171ms
+2018-03-18T07:27:21.496Z info   okex.socket disconnected
+2018-03-18T07:27:22.856Z info   okex.socket connected in 1042ms
+2018-03-18T07:32:23.199Z info   okex.socket disconnected
+2018-03-18T07:32:24.644Z info   okex.socket connected in 989ms
+2018-03-18T07:37:24.915Z info   okex.socket disconnected
+2018-03-18T07:37:26.316Z info   okex.socket connected in 1079ms
+2018-03-18T07:42:26.586Z info   okex.socket disconnected
+2018-03-18T07:42:27.919Z info   okex.socket connected in 1029ms
+2018-03-18T07:47:28.190Z info   okex.socket disconnected
+2018-03-18T07:47:29.417Z info   okex.socket connected in 929ms
+2018-03-18T07:52:29.734Z info   okex.socket disconnected
+2018-03-18T07:52:31.167Z info   okex.socket connected in 1108ms
+2018-03-18T07:57:31.455Z info   okex.socket disconnected
+2018-03-18T07:57:32.906Z info   okex.socket connected in 989ms
+2018-03-18T08:02:33.178Z info   okex.socket disconnected
+2018-03-18T08:02:34.575Z info   okex.socket connected in 986ms
+2018-03-18T08:07:34.853Z info   okex.socket disconnected
+2018-03-18T08:07:36.879Z info   okex.socket connected in 1720ms
+2018-03-18T08:12:37.349Z info   okex.socket disconnected
+2018-03-18T08:12:38.645Z info   okex.socket connected in 992ms
+2018-03-18T08:17:38.918Z info   okex.socket disconnected
+2018-03-18T08:17:40.114Z info   okex.socket connected in 888ms
+2018-03-18T08:22:40.386Z info   okex.socket disconnected
+2018-03-18T08:22:41.626Z info   okex.socket connected in 833ms
+2018-03-18T08:27:42.065Z info   okex.socket disconnected
+2018-03-18T08:27:43.359Z info   okex.socket connected in 988ms
+2018-03-18T08:32:43.631Z info   okex.socket disconnected
+2018-03-18T08:32:44.965Z info   okex.socket connected in 1032ms
+2018-03-18T08:37:45.285Z info   okex.socket disconnected
+2018-03-18T08:37:46.738Z info   okex.socket connected in 1128ms
+2018-03-18T08:42:47.028Z info   okex.socket disconnected
+2018-03-18T08:42:48.518Z info   okex.socket connected in 1188ms
+2018-03-18T08:47:48.964Z info   okex.socket disconnected
+2018-03-18T08:47:50.364Z info   okex.socket connected in 1082ms
+2018-03-18T08:52:50.650Z info   okex.socket disconnected
+2018-03-18T08:52:52.018Z info   okex.socket connected in 871ms
+2018-03-18T08:57:52.309Z info   okex.socket disconnected
+2018-03-18T08:57:53.637Z info   okex.socket connected in 1027ms
+2018-03-18T09:02:53.915Z info   okex.socket disconnected
+2018-03-18T09:02:55.316Z info   okex.socket connected in 1052ms
+2018-03-18T09:07:55.601Z info   okex.socket disconnected
+2018-03-18T09:07:56.913Z info   okex.socket connected in 1002ms
+2018-03-18T09:12:57.184Z info   okex.socket disconnected
+2018-03-18T09:12:58.478Z info   okex.socket connected in 844ms
+2018-03-18T09:17:58.901Z info   okex.socket disconnected
+2018-03-18T09:18:00.164Z info   okex.socket connected in 942ms
+2018-03-18T09:23:00.446Z info   okex.socket disconnected
+2018-03-18T09:23:01.805Z info   okex.socket connected in 922ms
+2018-03-18T09:28:02.145Z info   okex.socket disconnected
+2018-03-18T09:28:03.456Z info   okex.socket connected in 994ms
+2018-03-18T09:33:03.742Z info   okex.socket disconnected
+2018-03-18T09:33:04.972Z info   okex.socket connected in 930ms
+2018-03-18T09:38:05.256Z info   okex.socket disconnected
+2018-03-18T09:38:06.447Z info   okex.socket connected in 872ms
+2018-03-18T09:43:06.738Z info   okex.socket disconnected
+2018-03-18T09:43:07.939Z info   okex.socket connected in 878ms
+2018-03-18T09:48:08.222Z info   okex.socket disconnected
+2018-03-18T09:48:09.657Z info   okex.socket connected in 1024ms
+2018-03-18T09:53:09.954Z info   okex.socket disconnected
+2018-03-18T09:53:11.290Z info   okex.socket connected in 987ms
+2018-03-18T09:58:11.570Z info   okex.socket disconnected
+2018-03-18T09:58:13.009Z info   okex.socket connected in 1024ms
+2018-03-18T10:03:13.293Z info   okex.socket disconnected
+2018-03-18T10:03:14.614Z info   okex.socket connected in 1016ms
+2018-03-18T10:08:14.887Z info   okex.socket disconnected
+2018-03-18T10:08:16.104Z info   okex.socket connected in 916ms
+2018-03-18T10:13:16.381Z info   okex.socket disconnected
+2018-03-18T10:13:17.687Z info   okex.socket connected in 987ms
+2018-03-18T10:18:17.962Z info   okex.socket disconnected
+2018-03-18T10:18:19.497Z info   okex.socket connected in 1209ms
+2018-03-18T10:23:19.783Z info   okex.socket disconnected
+2018-03-18T10:23:20.927Z info   okex.socket connected in 829ms
+2018-03-18T10:28:21.202Z info   okex.socket disconnected
+2018-03-18T10:28:22.447Z info   okex.socket connected in 836ms
+2018-03-18T10:33:22.880Z info   okex.socket disconnected
+2018-03-18T10:33:24.077Z info   okex.socket connected in 828ms
+2018-03-18T10:38:24.551Z info   okex.socket disconnected
+2018-03-18T10:38:25.847Z info   okex.socket connected in 988ms
+2018-03-18T10:43:26.119Z info   okex.socket disconnected
+2018-03-18T10:43:27.414Z info   okex.socket connected in 992ms
+2018-03-18T10:48:27.695Z info   okex.socket disconnected
+2018-03-18T10:48:28.957Z info   okex.socket connected in 959ms
+2018-03-18T10:53:29.368Z info   okex.socket disconnected
+2018-03-18T10:53:30.662Z info   okex.socket connected in 975ms
+2018-03-18T10:58:30.949Z info   okex.socket disconnected
+2018-03-18T10:58:32.206Z info   okex.socket connected in 948ms
+2018-03-18T11:03:32.483Z info   okex.socket disconnected
+2018-03-18T11:03:33.634Z info   okex.socket connected in 830ms
+2018-03-18T11:08:33.931Z info   okex.socket disconnected
+2018-03-18T11:08:35.975Z info   okex.socket connected in 1238ms
+2018-03-18T11:13:36.253Z info   okex.socket disconnected
+2018-03-18T11:13:38.247Z info   okex.socket connected in 1223ms
+2018-03-18T11:18:38.521Z info   okex.socket disconnected
+2018-03-18T11:18:39.725Z info   okex.socket connected in 810ms
+2018-03-18T11:23:40.020Z info   okex.socket disconnected
+2018-03-18T11:23:42.138Z info   okex.socket connected in 1265ms
+2018-03-18T11:28:42.420Z info   okex.socket disconnected
+2018-03-18T11:28:44.199Z info   okex.socket connected in 1115ms
+2018-03-18T11:33:44.489Z info   okex.socket disconnected
+2018-03-18T11:33:46.552Z info   okex.socket connected in 1259ms
+2018-03-18T11:38:46.853Z info   okex.socket disconnected
+2018-03-18T11:38:48.540Z info   okex.socket connected in 1063ms
+2018-03-18T11:43:48.828Z info   okex.socket disconnected
+2018-03-18T11:43:50.599Z info   okex.socket connected in 1127ms
+2018-03-18T11:48:50.919Z info   okex.socket disconnected
+2018-03-18T11:48:52.845Z info   okex.socket connected in 1216ms
+2018-03-18T11:53:53.140Z info   okex.socket disconnected
+2018-03-18T11:53:55.254Z info   okex.socket connected in 1223ms
+2018-03-18T11:58:55.567Z info   okex.socket disconnected
+2018-03-18T11:58:57.694Z info   okex.socket connected in 1308ms
+2018-03-18T12:03:57.987Z info   okex.socket disconnected
+2018-03-18T12:04:00.038Z info   okex.socket connected in 1232ms
+2018-03-18T12:09:00.318Z info   okex.socket disconnected
+2018-03-18T12:09:02.320Z info   okex.socket connected in 1214ms
+2018-03-18T12:14:02.625Z info   okex.socket disconnected
+2018-03-18T12:14:03.921Z info   okex.socket connected in 991ms
+2018-03-18T12:19:04.336Z info   okex.socket disconnected
+2018-03-18T12:19:05.683Z info   okex.socket connected in 1031ms
+2018-03-18T12:24:05.973Z info   okex.socket disconnected
+2018-03-18T12:24:07.457Z info   okex.socket connected in 1025ms
+2018-03-18T12:29:07.826Z info   okex.socket disconnected
+2018-03-18T12:29:09.088Z info   okex.socket connected in 958ms
+2018-03-18T12:34:09.357Z info   okex.socket disconnected
+2018-03-18T12:34:10.788Z info   okex.socket connected in 989ms
+2018-03-18T12:39:11.158Z info   okex.socket disconnected
+2018-03-18T12:39:12.694Z info   okex.socket connected in 1224ms
+2018-03-18T12:44:13.131Z info   okex.socket disconnected
+2018-03-18T12:44:15.281Z info   okex.socket connected in 1846ms
+2018-03-18T12:49:15.617Z info   okex.socket disconnected
+2018-03-18T12:49:16.863Z info   okex.socket connected in 837ms
+2018-03-18T12:54:17.283Z info   okex.socket disconnected
+2018-03-18T12:54:18.716Z info   okex.socket connected in 1127ms
+2018-03-18T12:59:19.024Z info   okex.socket disconnected
+2018-03-18T12:59:20.592Z info   okex.socket connected in 1091ms
+2018-03-18T13:04:20.861Z info   okex.socket disconnected
+2018-03-18T13:04:22.197Z info   okex.socket connected in 1033ms
+2018-03-18T13:09:22.466Z info   okex.socket disconnected
+2018-03-18T13:09:23.970Z info   okex.socket connected in 1024ms
+2018-03-18T13:14:24.412Z info   okex.socket disconnected
+2018-03-18T13:14:25.948Z info   okex.socket connected in 1233ms
+2018-03-18T13:19:26.406Z info   okex.socket disconnected
+2018-03-18T13:19:27.667Z info   okex.socket connected in 958ms
+2018-03-18T13:24:27.940Z info   okex.socket disconnected
+2018-03-18T13:24:29.372Z info   okex.socket connected in 988ms
+2018-03-18T13:29:29.748Z info   okex.socket disconnected
+2018-03-18T13:29:31.006Z info   okex.socket connected in 945ms
+2018-03-18T13:34:31.281Z info   okex.socket disconnected
+2018-03-18T13:34:32.716Z info   okex.socket connected in 990ms
+2018-03-18T13:39:33.002Z info   okex.socket disconnected
+2018-03-18T13:39:34.293Z info   okex.socket connected in 985ms
+2018-03-18T13:44:34.567Z info   okex.socket disconnected
+2018-03-18T13:44:35.808Z info   okex.socket connected in 831ms
+2018-03-18T13:49:36.101Z info   okex.socket disconnected
+2018-03-18T13:49:37.424Z info   okex.socket connected in 1007ms
+2018-03-18T13:54:37.724Z info   okex.socket disconnected
+2018-03-18T13:54:39.088Z info   okex.socket connected in 967ms
+2018-03-18T13:59:39.485Z info   okex.socket disconnected
+2018-03-18T13:59:40.714Z info   okex.socket connected in 925ms
+2018-03-18T14:04:41.156Z info   okex.socket disconnected
+2018-03-18T14:04:42.487Z info   okex.socket connected in 1007ms
+2018-03-18T14:09:42.929Z info   okex.socket disconnected
+2018-03-18T14:09:44.074Z info   okex.socket connected in 832ms
+2018-03-18T14:14:44.359Z info   okex.socket disconnected
+2018-03-18T14:14:45.492Z info   okex.socket connected in 821ms
+2018-03-18T14:19:45.769Z info   okex.socket disconnected
+2018-03-18T14:19:47.305Z info   okex.socket connected in 1209ms
+2018-03-18T14:24:47.596Z info   okex.socket disconnected
+2018-03-18T14:24:48.923Z info   okex.socket connected in 992ms
+2018-03-18T14:29:49.212Z info   okex.socket disconnected
+2018-03-18T14:29:50.365Z info   okex.socket connected in 848ms
+2018-03-18T14:34:50.646Z info   okex.socket disconnected
+2018-03-18T14:34:52.080Z info   okex.socket connected in 979ms
+2018-03-18T14:39:52.362Z info   okex.socket disconnected
+2018-03-18T14:39:53.760Z info   okex.socket connected in 988ms
+2018-03-18T14:44:54.136Z info   okex.socket disconnected
+2018-03-18T14:44:55.425Z info   okex.socket connected in 967ms
+2018-03-18T14:49:55.719Z info   okex.socket disconnected
+2018-03-18T14:49:57.043Z info   okex.socket connected in 921ms
+2018-03-18T14:54:57.383Z info   okex.socket disconnected
+2018-03-18T14:54:58.691Z info   okex.socket connected in 999ms
+2018-03-18T14:59:59.054Z info   okex.socket disconnected
+2018-03-18T15:00:00.330Z info   okex.socket connected in 952ms
+2018-03-18T15:05:00.725Z info   okex.socket disconnected
+2018-03-18T15:05:02.025Z info   okex.socket connected in 990ms
+2018-03-18T15:10:02.509Z info   okex.socket disconnected
+2018-03-18T15:10:03.760Z info   okex.socket connected in 951ms
+2018-03-18T15:15:04.144Z info   okex.socket disconnected
+2018-03-18T15:15:05.408Z info   okex.socket connected in 965ms
+2018-03-18T15:20:05.672Z info   okex.socket disconnected
+2018-03-18T15:20:06.900Z info   okex.socket connected in 929ms
+2018-03-18T15:25:07.176Z info   okex.socket disconnected
+2018-03-18T15:25:08.620Z info   okex.socket connected in 988ms
+2018-03-18T15:30:08.893Z info   okex.socket disconnected
+2018-03-18T15:30:10.170Z info   okex.socket connected in 964ms
+2018-03-18T15:35:10.564Z info   okex.socket disconnected
+2018-03-18T15:35:11.878Z info   okex.socket connected in 994ms
+2018-03-18T15:40:12.337Z info   okex.socket disconnected
+2018-03-18T15:40:13.771Z info   okex.socket connected in 1121ms
+2018-03-18T15:45:14.093Z info   okex.socket disconnected
+2018-03-18T15:45:15.541Z info   okex.socket connected in 1012ms
+2018-03-18T15:50:15.841Z info   okex.socket disconnected
+2018-03-18T15:50:17.395Z info   okex.socket connected in 990ms
+2018-03-18T15:55:17.663Z info   okex.socket disconnected
+2018-03-18T15:55:18.999Z info   okex.socket connected in 1017ms
+2018-03-18T16:00:19.449Z info   okex.socket disconnected
+2018-03-18T16:00:20.842Z info   okex.socket connected in 1071ms
+2018-03-18T16:05:21.128Z info   okex.socket disconnected
+2018-03-18T16:05:22.452Z info   okex.socket connected in 1000ms
+2018-03-18T16:10:22.729Z info   okex.socket disconnected
+2018-03-18T16:10:23.848Z info   okex.socket connected in 818ms
+2018-03-18T16:15:24.112Z info   okex.socket disconnected
+2018-03-18T16:15:25.589Z info   okex.socket connected in 1024ms
+2018-03-18T16:20:25.937Z info   okex.socket disconnected
+2018-03-18T16:20:27.207Z info   okex.socket connected in 967ms
+2018-03-18T16:25:27.478Z info   okex.socket disconnected
+2018-03-18T16:25:28.733Z info   okex.socket connected in 943ms
+2018-03-18T16:30:29.278Z info   okex.socket disconnected
+2018-03-18T16:30:30.653Z info   okex.socket connected in 991ms
+2018-03-18T16:35:30.935Z info   okex.socket disconnected
+2018-03-18T16:35:32.150Z info   okex.socket connected in 902ms
+2018-03-18T16:40:32.428Z info   okex.socket disconnected
+2018-03-18T16:40:33.958Z info   okex.socket connected in 1126ms
+2018-03-18T16:45:34.400Z info   okex.socket disconnected
+2018-03-18T16:45:35.700Z info   okex.socket connected in 982ms
+2018-03-18T16:50:36.044Z info   okex.socket disconnected
+2018-03-18T16:50:37.505Z info   okex.socket connected in 1139ms
+2018-03-18T16:55:37.815Z info   okex.socket disconnected
+2018-03-18T16:55:39.017Z info   okex.socket connected in 892ms
+2018-03-18T17:00:39.425Z info   okex.socket disconnected
+2018-03-18T17:00:40.859Z info   okex.socket connected in 1119ms
+2018-03-18T17:05:41.161Z info   okex.socket disconnected
+2018-03-18T17:05:42.468Z info   okex.socket connected in 978ms
+2018-03-18T17:10:42.813Z info   okex.socket disconnected
+2018-03-18T17:10:44.280Z info   okex.socket connected in 994ms
+2018-03-18T17:15:44.557Z info   okex.socket disconnected
+2018-03-18T17:15:45.799Z info   okex.socket connected in 938ms
+2018-03-18T17:20:46.065Z info   okex.socket disconnected
+2018-03-18T17:20:47.551Z info   okex.socket connected in 1026ms
+2018-03-18T17:25:47.826Z info   okex.socket disconnected
+2018-03-18T17:25:49.149Z info   okex.socket connected in 1006ms
+2018-03-18T17:30:49.433Z info   okex.socket disconnected
+2018-03-18T17:30:50.977Z info   okex.socket connected in 1024ms
+2018-03-18T17:35:52.143Z info   okex.socket disconnected
+2018-03-18T17:35:53.464Z info   okex.socket connected in 996ms
+2018-03-18T17:40:53.739Z info   okex.socket disconnected
+2018-03-18T17:40:55.164Z info   okex.socket connected in 1106ms
+2018-03-18T17:45:55.507Z info   okex.socket disconnected
+2018-03-18T17:45:56.807Z info   okex.socket connected in 981ms
+2018-03-18T17:50:57.093Z info   okex.socket disconnected
+2018-03-18T17:50:58.516Z info   okex.socket connected in 1024ms
+2018-03-18T17:55:58.803Z info   okex.socket disconnected
+2018-03-18T17:56:00.155Z info   okex.socket connected in 1034ms
+2018-03-18T18:01:00.437Z info   okex.socket disconnected
+2018-03-18T18:01:01.702Z info   okex.socket connected in 958ms
+2018-03-18T18:06:01.992Z info   okex.socket disconnected
+2018-03-18T18:06:03.436Z info   okex.socket connected in 1025ms
+2018-03-18T18:11:03.827Z info   okex.socket disconnected
+2018-03-18T18:11:05.171Z info   okex.socket connected in 1007ms
+2018-03-18T18:16:05.652Z info   okex.socket disconnected
+2018-03-18T18:16:06.944Z info   okex.socket connected in 995ms
+2018-03-18T18:21:07.327Z info   okex.socket disconnected
+2018-03-18T18:21:08.585Z info   okex.socket connected in 941ms
+2018-03-18T18:26:08.859Z info   okex.socket disconnected
+2018-03-18T18:26:10.056Z info   okex.socket connected in 893ms
+2018-03-18T18:31:10.343Z info   okex.socket disconnected
+2018-03-18T18:31:11.699Z info   okex.socket connected in 921ms
+2018-03-18T18:36:11.974Z info   okex.socket disconnected
+2018-03-18T18:36:13.472Z info   okex.socket connected in 1023ms
+2018-03-18T18:41:13.756Z info   okex.socket disconnected
+2018-03-18T18:41:15.141Z info   okex.socket connected in 1073ms
+2018-03-18T18:46:15.497Z info   okex.socket disconnected
+2018-03-18T18:46:16.786Z info   okex.socket connected in 988ms
+2018-03-18T18:51:17.059Z info   okex.socket disconnected
+2018-03-18T18:51:18.333Z info   okex.socket connected in 967ms
+2018-03-18T18:56:18.614Z info   okex.socket disconnected
+2018-03-18T18:56:19.801Z info   okex.socket connected in 875ms
+2018-03-18T19:01:20.211Z info   okex.socket disconnected
+2018-03-18T19:01:21.502Z info   okex.socket connected in 994ms
+2018-03-18T19:06:21.765Z info   okex.socket disconnected
+2018-03-18T19:06:23.213Z info   okex.socket connected in 1029ms
+2018-03-18T19:11:23.553Z info   okex.socket disconnected
+2018-03-18T19:11:24.806Z info   okex.socket connected in 946ms
+2018-03-18T19:14:07.642Z info   okex.socket disconnected
+2018-03-18T19:14:07.965Z error  okex.socket uWs client connection error -- Reason:

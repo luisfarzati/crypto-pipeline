@@ -1,0 +1,78 @@
+body {
+  /* margin: 15px; */
+  /* font-family: 'Courier New', Courier, monospace; */
+}
+
+.navbar * {
+  font-size: .75rem !important;
+}
+
+.btn-group > button:first-child {
+  border-top-left-radius: 0;
+}
+.btn-group > button:last-child {
+  border-top-right-radius: 0;
+}
+
+/* button {
+  border: 1px solid dodgerblue;
+  border-radius: 2px;
+  background: deepskyblue;
+  font-size: 11pt;
+  color: white;
+  padding: 6px;
+  margin-top: 5px;
+} */
+
+.output.vert {
+  float: right !important;
+  width: 42% !important;
+  margin-top: 15px;
+  min-height: 100px;
+  height: 360px;
+  resize: vertical;
+  overflow: scroll;
+}
+
+.editor.vert {
+  background: #1e1e1e;
+  border-top-left-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+  float: left;
+  width: 55%;
+  margin-top: 15px;
+  min-height: 100px;
+  height: 360px;
+  resize: vertical;
+  overflow: scroll;
+}
+
+.editor .monaco-editor {
+  border-top-left-radius: 4px !important;
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.card {
+  border-color: #888;
+}
+
+.card-header {
+  height: 1.5rem;
+  padding: 0.05rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.editor.vert .card-body {
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+}
+
+#output .card-body {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11pt;
+}

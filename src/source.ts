@@ -36,8 +36,9 @@ const annotated = (message: any, source: SourceName) => {
     $source: source,
     $its: Date.now()
   };
+  const messageObject = typeof message === "string" ? JSON.parse(message) : message;
   return {
-    ...message,
+    ...messageObject,
     ...annotations
   };
 };

@@ -50,7 +50,7 @@ const connect: SourceConnectFunction = (handler, environment = process.env, isRe
     logger.info("disconnected");
   });
   ws.on("error", (err: any) => {
-    logger.error(`${err.message} -- Reason: ${err.reason || ""}`);
+    logger.error(`${err.message} -- Reason: ${err.reason || "unknown"}`);
   });
   ws.on("message", (serialized) => {
     // OKEX messages come inside an single-element array for some reason

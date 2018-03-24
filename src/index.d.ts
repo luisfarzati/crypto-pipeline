@@ -8,7 +8,7 @@ declare type SourceClient = {
   connect: SourceConnectFunction;
 };
 
-declare type SpoutMapFunction = (message: string) => SpoutMessage | undefined;
+declare type SpoutMapFunction = (message: string) => SpoutMessage | SpoutMessage[] | undefined;
 
 declare type SpoutMapper = {
   map: SpoutMapFunction;

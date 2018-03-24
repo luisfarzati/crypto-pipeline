@@ -63,10 +63,17 @@ const start = async (environment = process.env) => {
     if (!event) {
       continue;
     } else if (env.DEBUG) {
-      logger.info(eventJson);
+      logger.info(eventJson.slice(5, 50));
     }
 
-    redis.publish(`${env.REDIS_PUB_CHANNEL_PREFIX}.${event.$source}.${event.$pair}`, JSON.stringify(event));
+    const events = Array.isArray(event) ? event : [event];
+
+    events.forEach((eventItem) => {
+      redis.publish(
+        `${env.REDIS_PUB_CHANNEL_PREFIX}.${eventItem.$source}.${eventItem.$pair}`,
+        JSON.stringify(eventItem)
+      );
+    });
   }
 };
 
