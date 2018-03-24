@@ -1,5 +1,5 @@
 import * as eep from "eep";
-import { createLogger } from "../services/logger";
+import * as envalid from "envalid";
 import { createRedis } from "../services/redis";
 import { ExchangeAggregated } from "./types";
 import { toSecond, toMinute } from "./aggr-utils";
@@ -7,19 +7,28 @@ import { createGdaxStats } from "./aggr-gdax";
 import { createOkexStats } from "./aggr-okex";
 import { createBinanceStats } from "./aggr-binance";
 
-const logger = createLogger("1sec");
+const configurationVars = {
+  DEBUG: envalid.bool({
+    devDefault: true
+  }),
+  EXPIRATION_SECONDS: envalid.num({
+    default: 60 * 60
+  }),
+  EXPIRATION_MINUTES: envalid.num({
+    default: 60 * 60 * 24 * 30
+  })
+};
+
+const env = envalid.cleanEnv(process.env, configurationVars);
+
 const redis = createRedis();
-
-const EXPIRATION_SECONDS = 60 * 60 * 24 * 10;
-
-const EXPIRATION_MINUTES = 60 * 60 * 24 * 30;
 
 const createWindow = (aggregatorFn: any, windowTime: number, unit: string, redisKeyPrefix: string) => {
   const window = eep.EventWorld.make()
     .windows()
     .monotonic(aggregatorFn(unit), new eep.CountingClock());
 
-  const expirationSeconds = unit === "s" ? EXPIRATION_SECONDS : EXPIRATION_MINUTES;
+  const expirationSeconds = unit === "s" ? env.EXPIRATION_SECONDS : env.EXPIRATION_MINUTES;
 
   window.on("emit", (v: Map<string, ExchangeAggregated>) => {
     const p = redis.pipeline();
@@ -28,8 +37,6 @@ const createWindow = (aggregatorFn: any, windowTime: number, unit: string, redis
       const key = `${redisKeyPrefix}.${stats.pair}.${windowTime}${unit}.${time}`;
       p.set(key, JSON.stringify(stats));
       p.expire(key, expirationSeconds);
-      const gt = new Date(time).toLocaleTimeString();
-      logger.info(redisKeyPrefix, gt, stats.pair, stats.timestamps.length, stats.count);
     }
     p.exec();
   });
@@ -51,9 +58,7 @@ let lastMinuteOkex: number;
 let lastSecondBinance: number;
 let lastMinuteBinance: number;
 
-logger.info("pair", "msg ts", "sec ts", "min ts", "time");
-
-const execute: SpoutMessageHandler = async (pattern, channel, message: string) => {
+const execute: SpoutMessageHandler = async (_pattern, _channel, message) => {
   const m = JSON.parse(message) as SpoutMessage;
 
   let t: number;
@@ -78,7 +83,6 @@ const execute: SpoutMessageHandler = async (pattern, channel, message: string) =
   } else {
     return;
   }
-  logger.info(m.$source, m.$pair, t, ts, tm, new Date(ts).toLocaleTimeString());
 
   if (m.$source === "gdax") {
     if (ts !== lastSecondGdax) {

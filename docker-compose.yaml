@@ -1,0 +1,35 @@
+version: '3'
+services:
+  pipeline:
+    build: .
+    image: aureum/crypto-pipeline:dev
+    depends_on:
+      - redis
+  redis:
+    image: redis:alpine
+    ports:
+      - 6379:6379
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    depends_on:
+      - redis_exporter
+  redis_exporter:
+    image: oliver006/redis_exporter
+    command: -check-keys "*.buffer"
+    ports:
+      - 9121:9121
+    environment:
+      REDIS_ADDR: redis:6379
+    depends_on:
+      - redis
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - ./grafana/etc:/etc/grafana
+      - ./grafana/lib:/var/lib/grafana

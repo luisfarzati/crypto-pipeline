@@ -1,3 +1,4 @@
+import { Big } from "big.js";
 import { OkexAggregated } from "./types";
 import { min, avg, max, toSecond, toMinute } from "./aggr-utils";
 
@@ -27,7 +28,10 @@ export const createOkexStats = (unit: string) => {
       time: fn(t),
       unit,
       count: 0,
-      pair
+      pair,
+      sumBuy: new Big(0),
+      sumSell: new Big(0),
+      sumVol: new Big(0)
     };
     const c = aggr.count!;
     const data = {
@@ -36,6 +40,9 @@ export const createOkexStats = (unit: string) => {
       unit: aggr.unit!,
       count: c + 1,
       pair: aggr.pair!,
+      sumBuy: aggr.sumBuy!.plus(m.data.buy),
+      sumSell: aggr.sumSell!.plus(m.data.sell),
+      sumVol: aggr.sumVol!.plus(m.data.vol),
       averageBuy: avg(aggr.count, aggr.averageBuy, m.data.buy),
       averageSell: avg(aggr.count, aggr.averageSell, m.data.sell),
       averageVol: avg(aggr.count, aggr.averageVol, m.data.vol),

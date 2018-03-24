@@ -1,3 +1,4 @@
+import { Big } from "big.js";
 import { BinanceAggregated } from "./types";
 import { min, avg, max, toSecond, toMinute } from "./aggr-utils";
 
@@ -27,7 +28,22 @@ export const createBinanceStats = (unit: string) => {
       time: fn(t),
       unit,
       count: 0,
-      pair
+      pair,
+      sum_a: new Big(0),
+      sum_A: new Big(0),
+      sum_b: new Big(0),
+      sum_B: new Big(0),
+      sum_c: new Big(0),
+      sum_h: new Big(0),
+      sum_l: new Big(0),
+      sum_o: new Big(0),
+      sum_p: new Big(0),
+      sum_P: new Big(0),
+      sum_q: new Big(0),
+      sum_Q: new Big(0),
+      sum_v: new Big(0),
+      sum_w: new Big(0),
+      sum_x: new Big(0)
     };
     const c = aggr.count!;
     const data: BinanceAggregated = {
@@ -36,6 +52,21 @@ export const createBinanceStats = (unit: string) => {
       unit: aggr.unit!,
       count: c + 1,
       pair: aggr.pair!,
+      sum_a: aggr.sum_a!.plus(m.a),
+      sum_A: aggr.sum_A!.plus(m.A),
+      sum_b: aggr.sum_b!.plus(m.b),
+      sum_B: aggr.sum_B!.plus(m.B),
+      sum_c: aggr.sum_c!.plus(m.c),
+      sum_h: aggr.sum_h!.plus(m.h),
+      sum_l: aggr.sum_l!.plus(m.l),
+      sum_o: aggr.sum_o!.plus(m.o),
+      sum_p: aggr.sum_p!.plus(m.p),
+      sum_P: aggr.sum_P!.plus(m.P),
+      sum_q: aggr.sum_q!.plus(m.q),
+      sum_Q: aggr.sum_Q!.plus(m.Q),
+      sum_v: aggr.sum_v!.plus(m.v),
+      sum_w: aggr.sum_w!.plus(m.w),
+      sum_x: aggr.sum_x!.plus(m.x),
 
       average_a: avg(aggr.count, aggr.average_a, m.a),
       average_A: avg(aggr.count, aggr.average_A, m.A),

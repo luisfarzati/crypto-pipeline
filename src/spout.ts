@@ -63,7 +63,7 @@ const start = async (environment = process.env) => {
     if (!event) {
       continue;
     } else if (env.DEBUG) {
-      logger.info(eventJson.slice(5, 50));
+      logger.info(eventJson);
     }
 
     const events = Array.isArray(event) ? event : [event];

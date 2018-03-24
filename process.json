@@ -1,0 +1,66 @@
+{
+    "apps": [
+        {
+            "name": "binance-source",
+            "script": "./.build/source.js",
+            "env": {
+                "SOURCE_NAME": "binance",
+                "REDIS_HOST": "redis"
+            }
+        },
+        {
+            "name": "binance-spout",
+            "script": "./.build/spout.js",
+            "env": {
+                "SOURCE_NAME": "binance",
+                "MAPPER_NAME": "event",
+                "REDIS_HOST": "redis"
+            }
+        },
+        {
+            "name": "gdax-source",
+            "script": "./.build/source.js",
+            "env": {
+                "SOURCE_NAME": "gdax",
+                "PAIRS": "[\"BTC-USD\",\"LTC-USD\",\"ETH-USD\",\"BCH-USD\",\"ETH-BTC\",\"LTC-BTC\",\"BCH-BTC\"]",
+                "REDIS_HOST": "redis"
+            }
+        },
+        {
+            "name": "gdax-spout",
+            "script": "./.build/spout.js",
+            "env": {
+                "SOURCE_NAME": "gdax",
+                "MAPPER_NAME": "event",
+                "REDIS_HOST": "redis"
+            }
+        },
+        {
+            "name": "okex-source",
+            "script": "./.build/source.js",
+            "env": {
+                "SOURCE_NAME": "okex",
+                "PAIRS": "[\"btc_usdt\",\"eth_usdt\",\"eth_btc\",\"ltc_usdt\",\"ltc_btc\",\"etc_usdt\",\"etc_btc\",\"bch_btc\",\"bch_usdt\",\"eos_usdt\",\"eos_btc\",\"xrp_usdt\",\"xrp_btc\",\"swftc_btc\",\"swftc_usdt\",\"snc_btc\",\"snc_usdt\",\"gtc_usdt\",\"gtc_btc\",\"neo_btc\",\"neo_usdt\",\"iost_btc\",\"iost_usdt\",\"ins_btc\",\"ins_usdt\",\"trx_btc\",\"trx_usdt\",\"pra_btc\",\"pra_usdt\",\"vib_btc\",\"vib_usdt\",\"aidoc_btc\",\"aidoc_usdt\",\"auto_btc\",\"auto_usdt\",\"dadi_btc\",\"dadi_usdt\",\"gto_btc\",\"gto_usdt\",\"qtum_usdt\",\"qtum_btc\",\"btm_usdt\",\"btm_btc\",\"itc_btc\",\"itc_usdt\",\"r_btc\",\"r_usdt\",\"iota_btc\",\"iota_usdt\",\"int_btc\",\"int_usdt\",\"spf_btc\",\"spf_usdt\",\"ugc_usdt\",\"ugc_btc\",\"hsr_btc\",\"hsr_usdt\",\"theta_btc\",\"theta_usdt\",\"true_btc\",\"true_usdt\",\"show_btc\",\"show_usdt\",\"bcd_btc\",\"bcd_usdt\",\"lrc_btc\",\"lrc_usdt\",\"ace_btc\",\"ace_usdt\",\"soc_btc\",\"soc_usdt\",\"bkx_btc\",\"bkx_usdt\",\"elf_usdt\",\"elf_btc\",\"nas_btc\",\"nas_usdt\",\"icx_btc\",\"icx_usdt\",\"rcn_btc\",\"rcn_usdt\",\"yoyo_btc\",\"yoyo_usdt\"]",
+                "REDIS_HOST": "redis"
+            }
+        },
+        {
+            "name": "okex-spout",
+            "script": "./.build/spout.js",
+            "env": {
+                "SOURCE_NAME": "okex",
+                "MAPPER_NAME": "event",
+                "REDIS_HOST": "redis"
+            }
+        },
+        {
+            "name": "aggr-ticker-bolt",
+            "script": "./.build/bolt.js",
+            "env": {
+                "BOLT_NAME": "aggr-ticker",
+                "REDIS_CHANNEL": "feed.*",
+                "REDIS_HOST": "redis"
+            }
+        }
+    ]
+}

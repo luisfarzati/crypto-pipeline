@@ -1,9 +1,9 @@
 import { Big } from "big.js";
 
-export const avg = (count = 0, total = new Big(0), n: string) => total.plus(n).div(count + 1);
+export const avg = (count = 0, total = new Big(0), n: string | undefined) => (n ? total.plus(n).div(count + 1) : total);
 
 export const max = (highest = new Big(0), n: string) => {
-  const num = new Big(n);
+  const num = new Big(n || highest);
   return highest.lt(num) ? num : highest;
 };
 

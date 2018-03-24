@@ -26,7 +26,6 @@ const start = async (environment = process.env) => {
 
   const logger = createLogger(`${env.BOLT_NAME}`);
   logger.info(`starting bolt ${env.BOLT_NAME}`);
-  logger.info(`subscribing to channel: "${env.REDIS_CHANNEL}"`);
 
   const redis = createRedis({
     ...process.env,
@@ -37,7 +36,10 @@ const start = async (environment = process.env) => {
   const boltPath = path.resolve(__dirname, "bolts", env.BOLT_NAME);
   const bolt = (await import(boltPath)) as Bolt;
 
-  redis.psubscribe(env.REDIS_CHANNEL);
+  redis.on("connect", () => {
+    logger.info(`subscribing to channel: "${env.REDIS_CHANNEL}"`);
+    redis.psubscribe(env.REDIS_CHANNEL);
+  });
   redis.on("pmessage", bolt.execute);
 };
 

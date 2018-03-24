@@ -1,6 +1,5 @@
 import * as envalid from "envalid";
 import * as WebSocket from "uws";
-import { envalidJsonArray } from "../../utils";
 import { createLogger } from "../../services/logger";
 
 const DEFAULT_WS_URL = "wss://stream.binance.com:9443/ws/!ticker@arr";

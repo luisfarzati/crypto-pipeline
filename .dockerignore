@@ -3,4 +3,6 @@
 !src
 !.env
 !package.json
+!tsconfig.json
+!process.json
 !yarn.lock

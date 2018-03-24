@@ -29,7 +29,7 @@ const start = async (environment = process.env) => {
 
   const redis = createRedis();
   redis.psubscribe("*"); // env.REDIS_CHANNEL);
-  redis.on("pmessage", (pattern, channel, message) => {
+  redis.on("pmessage", (_pattern, channel, message) => {
     const m = JSON.stringify({
       source: channel.includes("gdax") ? "gdax" : "okex",
       feed: channel,
@@ -44,7 +44,7 @@ const start = async (environment = process.env) => {
   });
 
   const app = express();
-  app.use((req, res, next) => {
+  app.use((req, _res, next) => {
     if (!req.url.includes(".")) {
       logger.info(req.url);
     }
