@@ -11,7 +11,7 @@ const configurationVars = {
   BOLT_NAME: envalid.str({
     example: "websocket"
   }),
-  REDIS_CHANNEL: envalid.str({
+  REDIS_SUB_CHANNEL: envalid.str({
     example: "feed.*"
   })
 };
@@ -37,8 +37,8 @@ const start = async (environment = process.env) => {
   const bolt = (await import(boltPath)) as Bolt;
 
   redis.on("connect", () => {
-    logger.info(`subscribing to channel: "${env.REDIS_CHANNEL}"`);
-    redis.psubscribe(env.REDIS_CHANNEL);
+    logger.info(`subscribing to channel: "${env.REDIS_SUB_CHANNEL}"`);
+    redis.psubscribe(env.REDIS_SUB_CHANNEL);
   });
   redis.on("pmessage", bolt.execute);
 };

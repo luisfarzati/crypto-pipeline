@@ -7,9 +7,12 @@ streamConnectForm.addEventListener("submit", function(e) {
   e.preventDefault();
 });
 
-const o = $id("output");
+const o = $id("printContainer");
 window.print = (s = "") => {
-  o.innerHTML = s.replace(/\n/g, "<br>").replace(/\s/g, "&nbsp;");
+  o.textContent = o.textContent.concat(s);
+};
+window.clear = () => {
+  o.textContent = "";
 };
 
 $id("runButton").addEventListener("click", () => {
@@ -21,7 +24,8 @@ $id("runButton").addEventListener("click", () => {
 });
 
 window.cb = (m) => {
-  console.log(m);
+  clear();
+  print(JSON.stringify(m));
 };
 
 window.onPriceUpdate = (h) => (window.cb = h);
@@ -34,16 +38,21 @@ const renderStreamConnectButton = () => {
   streamConnectButton.className = `btn btn-${isOpen ? "success" : "danger"} my-2 my-sm-0`;
 };
 
+let errored = false;
+
+// auto-connect
 const ws = new WebSocket(`ws://${location.hostname}:${parseInt(location.port) + 1}`);
 ws.addEventListener("open", renderStreamConnectButton);
 ws.addEventListener("message", (m) => {
   // console.log(m);
   requestAnimationFrame(() => {
-    // try {
-    window.cb(JSON.parse(m.data));
-    // }
-    // catch (err) { }
-    // })
+    try {
+      errored || window.cb(JSON.parse(m.data));
+    } catch (err) {
+      errored = true;
+      console.error(err);
+      console.log(m.data);
+    }
   });
 });
 // ws.close();

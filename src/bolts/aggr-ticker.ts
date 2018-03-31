@@ -7,15 +7,22 @@ import { createGdaxStats } from "./aggr-gdax";
 import { createOkexStats } from "./aggr-okex";
 import { createBinanceStats } from "./aggr-binance";
 
+const DEFAULT_EXPIRATION_SECONDS = 60 * 60;
+const DEFAULT_EXPIRATION_MINUTES = 60 * 60 * 24 * 30;
+const DEFAULT_REDIS_PUB_CHANNEL_PREFIX = "aggr";
+
 const configurationVars = {
   DEBUG: envalid.bool({
     devDefault: true
   }),
   EXPIRATION_SECONDS: envalid.num({
-    default: 60 * 60
+    default: DEFAULT_EXPIRATION_SECONDS
   }),
   EXPIRATION_MINUTES: envalid.num({
-    default: 60 * 60 * 24 * 30
+    default: DEFAULT_EXPIRATION_MINUTES
+  }),
+  REDIS_PUB_CHANNEL_PREFIX: envalid.str({
+    default: DEFAULT_REDIS_PUB_CHANNEL_PREFIX
   })
 };
 
@@ -35,9 +42,12 @@ const createWindow = (aggregatorFn: any, windowTime: number, unit: string, redis
     for (const [, stats] of v) {
       const time = stats.time;
       const key = `${redisKeyPrefix}.${stats.pair}.${windowTime}${unit}.${time}`;
-      p.set(key, JSON.stringify(stats));
+      const json = JSON.stringify(stats);
+      p.set(key, json);
       p.expire(key, expirationSeconds);
+      p.publish(`${env.REDIS_PUB_CHANNEL_PREFIX}.${windowTime}${unit}.${redisKeyPrefix}.${stats.pair}`, json);
     }
+    p.publish(`${env.REDIS_PUB_CHANNEL_PREFIX}.${windowTime}${unit}.${redisKeyPrefix}.all`, JSON.stringify([...v]));
     p.exec();
   });
 

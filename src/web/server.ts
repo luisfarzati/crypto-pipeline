@@ -7,8 +7,7 @@ import { useTerminalTitle } from "../utils";
 
 const configurationVars = {
   HOST: envalid.host({ default: "0.0.0.0" }),
-  PORT: envalid.port({ default: 7980 }),
-  REDIS_CHANNEL: envalid.str()
+  PORT: envalid.port({ default: 7980 })
 };
 
 const start = async (environment = process.env) => {
@@ -26,14 +25,17 @@ const start = async (environment = process.env) => {
     logger.info("WebSocket client connected");
     s.on("close", () => logger.info("WebSocket client disconnected"));
   });
+  wss.on("error", (err) => {
+    logger.error(err.name, err.message);
+  });
 
   const redis = createRedis();
-  redis.psubscribe("*"); // env.REDIS_CHANNEL);
+  redis.psubscribe("feed.1s.*");
   redis.on("pmessage", (_pattern, channel, message) => {
+    const deserializedMessage = JSON.parse(message);
     const m = JSON.stringify({
-      source: channel.includes("gdax") ? "gdax" : "okex",
       feed: channel,
-      data: JSON.parse(message)
+      message: deserializedMessage
     });
     wss.clients.forEach((client) => {
       if (client.readyState === WebSocket.OPEN) {

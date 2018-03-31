@@ -58,7 +58,8 @@
             "script": "./.build/bolt.js",
             "env": {
                 "BOLT_NAME": "aggr-ticker",
-                "REDIS_CHANNEL": "feed.*",
+                "REDIS_SUB_CHANNEL": "feed.*",
+                "REDIS_PUB_CHANNEL_PREFIX": "aggr",
                 "REDIS_HOST": "redis"
             }
         }
