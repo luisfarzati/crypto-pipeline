@@ -1,9 +1,9 @@
-const $id = function(id) {
+const $id = function (id) {
   return document.getElementById(id);
 };
 
 const streamConnectForm = $id("streamConnectForm");
-streamConnectForm.addEventListener("submit", function(e) {
+streamConnectForm.addEventListener("submit", function (e) {
   e.preventDefault();
 });
 
@@ -20,6 +20,30 @@ $id("runButton").addEventListener("click", () => {
     eval(window.editor.getValue());
   } catch (err) {
     console.error(err);
+  }
+});
+
+$id("saveButton").addEventListener("click", () => {
+  try {
+    localStorage.setItem("editorValue", window.editor.getValue());
+  } catch (error) {
+    console.error(error)
+  }
+});
+
+$id("loadButton").addEventListener("click", () => {
+  try {
+    window.editor.setValue(localStorage.getItem("editorValue"));
+  } catch (error) {
+    console.error(error)
+  }
+});
+
+$id("cleanButton").addEventListener("click", () => {
+  try {
+    localStorage.removeItem("editorValue");
+  } catch (error) {
+    console.error(error)
   }
 });
 

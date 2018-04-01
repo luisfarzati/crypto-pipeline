@@ -1,15 +1,21 @@
 require.config({ paths: { vs: "monaco-editor/min/vs" } });
 
-fetch("default-code.js").then(function(R) {
-  R.text().then(function(code) {
-    initializeEditor({ code });
+
+let storedValue = localStorage.getItem("editorValue");
+if (storedValue === null) {
+  fetch("default-code.js").then(function (R) {
+    R.text().then(function (code) {
+      initializeEditor({ code });
+    });
   });
-});
+} else {
+  initializeEditor({ code: storedValue });
+}
 
 function initializeEditor(options) {
   const opts = options;
 
-  require(["vs/editor/editor.main"], function() {
+  require(["vs/editor/editor.main"], function () {
     window.editor = monaco.editor.create(document.getElementById("container"), {
       base: "vs",
       inherit: true,
