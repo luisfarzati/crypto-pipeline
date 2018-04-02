@@ -1,0 +1,7 @@
+graph TD
+EventBus>EventBus]
+EventBus-->|feed.*|Bolt["Bolt[aggr-ticker]"]
+Bolt-->|"aggr.1s.{exchange}.all"|EventBus
+EventBus-->|aggr.1s.*.all|Server
+Server-->|WebSocket|Client
+Client-.->|"onPriceUpdate()"|UserCode

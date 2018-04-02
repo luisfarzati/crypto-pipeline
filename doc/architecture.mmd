@@ -1,0 +1,18 @@
+graph TD
+subgraph Internet
+Exchange
+end
+subgraph Ingestion
+Exchange-->|WebSocket|Source["Source[Ex]"]
+Source-->|"{exchange}.buffer"|Buffer((Buffer))
+end
+subgraph Streaming
+Buffer-->Spout["Spout[Ex]"]
+Spout-->|"feed.{exchange}.{pair}"|EventBus>EventBus]
+Spout-.-|filter/map|Mapper
+end
+subgraph Consumers
+EventBus-->Bolt1[Bolt]
+EventBus-->Bolt2[Bolt]
+EventBus-->Bolt3[Bolt]
+end
