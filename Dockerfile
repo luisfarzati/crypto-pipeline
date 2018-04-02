@@ -18,6 +18,7 @@ WORKDIR /opt/pipeline
 
 COPY --from=builder /src/node_modules ./node_modules
 COPY --from=builder /src/.build ./.build
+COPY --from=builder /src/public ./public
 COPY --from=builder /src/process.json .
 
 CMD ["pm2-runtime", "process.json"]

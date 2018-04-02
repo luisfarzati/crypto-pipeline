@@ -7,14 +7,15 @@ import { useTerminalTitle } from "../utils";
 
 const configurationVars = {
   HOST: envalid.host({ default: "0.0.0.0" }),
-  PORT: envalid.port({ default: 7980 })
+  PORT: envalid.port({ default: 7980 }),
+  REDIS_SUB_CHANNEL: envalid.str()
 };
 
 const start = async (environment = process.env) => {
   const env = envalid.cleanEnv(environment, configurationVars);
-  useTerminalTitle("web-client");
+  useTerminalTitle("web-console");
 
-  const logger = createLogger(`web-client`);
+  const logger = createLogger(`web-console`);
 
   const wss = new WebSocket.Server({
     clientTracking: true,
@@ -30,7 +31,7 @@ const start = async (environment = process.env) => {
   });
 
   const redis = createRedis();
-  redis.psubscribe("aggr.1s.*.all");
+  redis.psubscribe(env.REDIS_SUB_CHANNEL);
   redis.on("pmessage", (_pattern, channel, message) => {
     const deserializedMessage = JSON.parse(message);
     const [, source] = channel.match(/(gdax|okex|binance)/) || Array();
@@ -39,9 +40,10 @@ const start = async (environment = process.env) => {
       channel,
       message: deserializedMessage
     });
+    let index = 0;
     wss.clients.forEach((client) => {
       if (client.readyState === WebSocket.OPEN) {
-        logger.info(`pushing ${channel} event to client`);
+        logger.info(`pushing ${channel} event to client ${index++}`);
         client.send(m);
       }
     });

@@ -5,6 +5,9 @@ services:
     image: aureum/crypto-pipeline:dev
     depends_on:
       - redis
+    ports:
+      - 7980:7980
+      - 7981:7981
   redis:
     image: redis:alpine
     ports:

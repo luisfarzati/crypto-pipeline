@@ -43,17 +43,10 @@ $id("saveButton").addEventListener("click", () => {
   }
 });
 
-$id("loadButton").addEventListener("click", () => {
-  try {
-    window.editor.setValue(localStorage.getItem("editorValue"));
-  } catch (error) {
-    console.error(error);
-  }
-});
-
 $id("cleanButton").addEventListener("click", () => {
   try {
-    localStorage.removeItem("editorValue");
+    // localStorage.removeItem("editorValue");
+    window.editor.setValue("onPriceUpdate((data) => {\n};");
   } catch (error) {
     console.error(error);
   }

@@ -60,7 +60,18 @@
                 "BOLT_NAME": "aggr-ticker",
                 "REDIS_SUB_CHANNEL": "feed.*",
                 "REDIS_PUB_CHANNEL_PREFIX": "aggr",
-                "REDIS_HOST": "redis"
+                "REDIS_HOST": "redis",
+                "EXPIRATION_SECONDS": 900,
+                "EXPIRATION_MINUTES": 1800
+            }
+        },
+        {
+            "name": "web-console",
+            "script": "./.build/web/server.js",
+            "env": {
+                "REDIS_SUB_CHANNEL": "aggr.1s.*.all",
+                "REDIS_HOST": "redis",
+                "PORT": 7980
             }
         }
     ]

@@ -32,7 +32,7 @@ onPriceUpdate((data) => {
       /** @type {OkexAggregated|GdaxAggregated|BinanceAggregated} */
       const value = dashboardPairs.get(pair).get(source);
       if (value) {
-        const price = value.average_best_ask || value.averageSell;
+        const price = value.average_best_ask || value.averageSell || value.average_a;
         newest = Math.max(newest, value.time);
         print(price.slice(0, 14).padStart(14));
         print("  ");
@@ -40,6 +40,6 @@ onPriceUpdate((data) => {
         print(`${"".padStart(14)}  `);
       }
     }
-    print(`${new Date(newest).toLocaleTimeString()}\n`);
+    print(`\n`);
   }
 });

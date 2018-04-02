@@ -75,24 +75,25 @@ const execute: SpoutMessageHandler = async (_pattern, _channel, message) => {
   let ts: number;
   let tm: number;
 
-  if (m.$source === "gdax") {
-    const gm = m as SpoutMessage & GdaxTickerMessage;
-    t = new Date(gm.time).getTime();
+  t = Date.now();
+  // if (m.$source === "gdax") {
+    // const gm = m as SpoutMessage & GdaxTickerMessage;
+    // t = new Date(gm.time).getTime();
     ts = toSecond(t);
     tm = toMinute(t);
-  } else if (m.$source === "okex") {
-    const gm = m as SpoutMessage & OkexSpotPriceMessage;
-    t = gm.data.timestamp;
-    ts = toSecond(t);
-    tm = toMinute(t);
-  } else if (m.$source === "binance") {
-    const gm = m as SpoutMessage & BinanceTickerMessage;
-    t = gm.E;
-    ts = toSecond(t);
-    tm = toMinute(t);
-  } else {
-    return;
-  }
+  // } else if (m.$source === "okex") {
+    // const gm = m as SpoutMessage & OkexSpotPriceMessage;
+    // t = gm.data.timestamp;
+    // ts = toSecond(t);
+    // tm = toMinute(t);
+  // } else if (m.$source === "binance") {
+    // const gm = m as SpoutMessage & BinanceTickerMessage;
+    // t = gm.E;
+    // ts = toSecond(t);
+    // tm = toMinute(t);
+  // } else {
+    // return;
+  // }
 
   if (m.$source === "gdax") {
     if (ts !== lastSecondGdax) {
