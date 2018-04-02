@@ -1,27 +1,39 @@
+const noop = () => {};
+
 const $id = function(id) {
   return document.getElementById(id);
 };
 
-const streamConnectForm = $id("streamConnectForm");
-streamConnectForm.addEventListener("submit", function(e) {
+$id("streamConnectForm").addEventListener("submit", function(e) {
   e.preventDefault();
 });
 
-const o = $id("printContainer");
-window.print = (s = "") => {
-  o.textContent = o.textContent.concat(s);
-};
-window.clear = () => {
-  o.textContent = "";
-};
+let isRunning = false;
+let errored = false;
 
-$id("runButton").addEventListener("click", () => {
+const runButton = $id("runButton");
+runButton.addEventListener("click", () => {
+  if (isRunning) {
+    window.cb = noop;
+    isRunning = false;
+    renderRunButton();
+    return;
+  }
+
   try {
+    isRunning = true;
+    errored = false;
+    renderRunButton();
     eval(window.editor.getValue());
   } catch (err) {
     console.error(err);
   }
 });
+
+const renderRunButton = () => {
+  runButton.innerText = isRunning ? "Stop" : "Run";
+  runButton.className = `btn btn-${isRunning ? "danger" : "primary"}`;
+};
 
 $id("saveButton").addEventListener("click", () => {
   try {
@@ -47,13 +59,6 @@ $id("cleanButton").addEventListener("click", () => {
   }
 });
 
-window.cb = (m) => {
-  clear();
-  print(JSON.stringify(m));
-};
-
-window.onPriceUpdate = (h) => (window.cb = h);
-
 const streamConnectButton = $id("streamConnectButton");
 
 const renderStreamConnectButton = () => {
@@ -62,21 +67,33 @@ const renderStreamConnectButton = () => {
   streamConnectButton.className = `btn btn-${isOpen ? "success" : "danger"} my-2 my-sm-0`;
 };
 
-let errored = false;
+const o = $id("printContainer");
+window.print = (s = "") => {
+  o.textContent = o.textContent.concat(s);
+};
+window.clear = () => {
+  o.textContent = "";
+};
+
+window.cb = noop;
+
+window.onPriceUpdate = (h) => (window.cb = h);
 
 // auto-connect
 const ws = new WebSocket(`ws://${location.hostname}:${parseInt(location.port) + 1}`);
 ws.addEventListener("open", renderStreamConnectButton);
 ws.addEventListener("message", (m) => {
-  // console.log(m);
+  if (errored) return;
+
   requestAnimationFrame(() => {
     try {
-      errored || window.cb(JSON.parse(m.data));
+      window.cb(JSON.parse(m.data));
     } catch (err) {
       errored = true;
+      isRunning = false;
+      renderRunButton();
       console.error(err);
       console.log(m.data);
     }
   });
 });
-// ws.close();

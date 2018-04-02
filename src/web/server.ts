@@ -30,11 +30,13 @@ const start = async (environment = process.env) => {
   });
 
   const redis = createRedis();
-  redis.psubscribe("feed.1s.*");
+  redis.psubscribe("aggr.1s.*.all");
   redis.on("pmessage", (_pattern, channel, message) => {
     const deserializedMessage = JSON.parse(message);
+    const [, source] = channel.match(/(gdax|okex|binance)/) || Array();
     const m = JSON.stringify({
-      feed: channel,
+      source,
+      channel,
       message: deserializedMessage
     });
     wss.clients.forEach((client) => {
