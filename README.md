@@ -178,12 +178,12 @@ Number of keys expired or evicted. Keys expire according to the configured expir
 
 This metric is very important and shows the size of the buffers. When running the platform in high-end hardware, this should typically be zero flat, perhaps with very few random and short spikes. In a typical workstation this might be very random, especially if the OS is being used for running other apps as well.
 
-If you see the buffers continuously grow, it may be an indication of one or two issues:
-
-- there is a problem with the Spouts
-- the platform is processing slower than it is ingesting
-
-The first issue needs troubleshooting. The second one may be solved by scaling out the Spouts; [check the pm2 configuration reference](http://pm2.keymetrics.io/docs/usage/cluster-mode/) to increase the number of instances for Spout processes.
+>If you see the buffers continuously grow, it may be an indication of one or two issues:
+>
+>- there is a problem with the Spouts
+>- the platform is processing slower than it is ingesting
+>
+>The first issue needs troubleshooting. The second one may be solved by scaling out the Spouts; [check the pm2 configuration reference](http://pm2.keymetrics.io/docs/usage/cluster-mode/) to increase the number of instances for Spout processes.
 
 #### Command Calls / sec
 
