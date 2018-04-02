@@ -5,10 +5,6 @@ EventBus-->|feed.*|Bolt["Bolt[aggr-ticker]"]
 Bolt-.->|enqueue|g1m((gdax1m))
 Bolt-.->g1s((gdax1s))
 g1m-.->|"<br>max,min,sum,avg"|g1m
-Bolt-.->o1m((okex1m))
-Bolt-.->o1s((okex1s))
-Bolt-.->b1m((bina1m))
-Bolt-.->b1s((bina1s))
 g1m-->|emit|Bolt
 Bolt-->|"<br><br>aggr.{1s|1m}.{exchange}.{pair}<br>aggr.{1m|1s}.{exchange}.all"|EventBus
 Bolt-->|"{exchange}.{pair}.1s.{second}<br>{exchange}.{pair}.1m.{minute}"|Redis((Redis))

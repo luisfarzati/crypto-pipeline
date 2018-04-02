@@ -26,7 +26,7 @@ Every instance of a Source service is associated to a single exchange; so the pl
 
 ### Buffer
 
-It is a Redis List (by default under the key `{exchange}.buffer`, e.g. `gdax.buffer`).
+It is a Redis List (by default under the key `{exchange}.buffer`, e.g. `gdax.buffer`). If the buffer grows until Redis is about to hit your system's available memory, it will reject new data.
 
 ### Spout
 
@@ -70,9 +70,11 @@ Current Bolts
 
 Calculates highest, lowest, sum and average of all available stats, per currency pair per exchange.
 
+#### How does it work
+
 ![Diagram](doc/aggr-ticker-bolt.png)
 
-#### How does it work
+(example diagram only shows GDAX but same goes with other exchanges)
 
 1. Subscribes to all available feed channels, where Spouts publish messages under `feed.{exchange}.{pair}`
 
@@ -146,12 +148,46 @@ Monitoring
 
 A dashboard based on [Grafana](https://grafana.com/)+[Prometheus](https://prometheus.io/) is provided out of the box. If running with docker-compose, it should be available at [port 3000](http://localhost:3000) by default.
 
+![Screenshot](grafana-screenshot.png)
+
 ### How does it work
 
 We are using [redis_exporter](https://github.com/oliver006/redis_exporter) which fetches metrics from Redis and injects them into Prometheus, which in turn is used by Grafana as the data feed for rendering the charts.
 
 The dashboard is preconfigured in the [`grafana/etc`](grafana/etc) directory.
 
+### Metrics
+
+#### CPU Usage & Network I/O
+
+Self-explained.
+
+#### Total Memory Usage
+
+How much memory is being consumed by Redis. Typically you want to see a pattern where memory usage grows and then it steadily flattens when expiration of keys becomes effective. It will, though, keep growing slowly due to minute-aggregation data that typically has a much larger lifespan.
+
+#### Keys in Database
+
+The number of keys stored in Redis. This is expected to grow fast at the beginning and then slow down until look almost flat.
+
+#### Expired/Evicted
+
+Number of keys expired or evicted. Keys expire according to the configured expiration policy for 1-second and 1-minute aggregations. If memory usage is reaching a limit, Redis will start evicting keys following a LRU policy.
+
+#### Buffers
+
+This metric is very important and shows the size of the buffers. When running the platform in high-end hardware, this should typically be zero flat, perhaps with very few random and short spikes. In a typical workstation this might be very random, especially if the OS is being used for running other apps as well.
+
+If you see the buffers continuously grow, it may be an indication of one or two issues:
+
+- there is a problem with the Spouts
+- the platform is processing slower than it is ingesting
+
+The first issue needs troubleshooting. The second one may be solved by scaling out the Spouts; [check the pm2 configuration reference](http://pm2.keymetrics.io/docs/usage/cluster-mode/) to increase the number of instances for Spout processes.
+
+#### Command Calls / sec
+
+This shows the number of Redis commands being executed, disaggregated by command. This should always look steady.
 
 Running the platform
 --------------------
