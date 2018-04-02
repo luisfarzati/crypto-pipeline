@@ -137,7 +137,7 @@ This is a web application that allows the user to consume the stream very easily
 
 ### How does it work
 
-![Diagram](doc/web-console.png)
+<img src="doc/web-console.png" width="400">
 
 The app server subscribes to the 1-second aggregated channel and sends the data to the client via WebSockets. The client invokes the user's function handler passing the message as argument.
 
@@ -148,7 +148,7 @@ Monitoring
 
 A dashboard based on [Grafana](https://grafana.com/)+[Prometheus](https://prometheus.io/) is provided out of the box. If running with docker-compose, it should be available at [port 3000](http://localhost:3000) by default.
 
-![Screenshot](grafana-screenshot.png)
+![Screenshot](doc/grafana-screenshot.png)
 
 ### How does it work
 
