@@ -7,8 +7,8 @@ import { createGdaxStats } from "./aggr-gdax";
 import { createOkexStats } from "./aggr-okex";
 import { createBinanceStats } from "./aggr-binance";
 
-const DEFAULT_EXPIRATION_SECONDS = 60 * 60;
-const DEFAULT_EXPIRATION_MINUTES = 60 * 60 * 24 * 30;
+const DEFAULT_EXPIRATION_SECONDS = 60 * 15;
+const DEFAULT_EXPIRATION_MINUTES = 60 * 60 * 24 * 15;
 const DEFAULT_REDIS_PUB_CHANNEL_PREFIX = "aggr";
 
 const configurationVars = {

@@ -1,12 +1,12 @@
 crypto-pipeline
 ===============
 
-A platform for real-time ingestion and processing of cryptocurrency trading events based on TypeScript, Node.js and Redis.
+A platform for real-time ingestion and processing of cryptocurrency trading events, built with TypeScript, Node.js and Redis.
 
 Architecture
 ------------
 
-The architecture is a microservice architecture with 3 stages: Ingestion, Streaming and Consumers. The [terminology and concepts](https://www.ibm.com/developerworks/library/os-twitterstorm/#fig1) used was partially borrowed from [Apache Storm](https://storm.apache.org).
+The architecture is microservice-based and comprises 3 conceptual systems: Ingestion, Streaming and Consumption. The [terminology and concepts](https://www.ibm.com/developerworks/library/os-twitterstorm/#fig1) in this documentation were partially borrowed from [Apache Storm](https://storm.apache.org).
 
 ![Architecture Diagram](doc/architecture.png)
 
@@ -18,9 +18,11 @@ Represents the API service provided by a given exchange (e.g. GDAX, OKEX, Binanc
 
 The **Source** service has the following responsabilities:
 
-- Establish a connection to the exchange WebSocket (taking care of reconnections and errors)
+- Establish a connection to a given exchange WebSocket (taking care of reconnections and errors)
 - Annotate the incoming messages with `$source` and `$its` (ingestion timestamp) properties
 - Insert the message into the Buffer
+
+Every instance of a Source service is associated to a single exchange; so the platform will run as many Source services as exchanges you want to consume.
 
 ### Buffer
 
@@ -30,13 +32,15 @@ It is a Redis List (by default under the key `{exchange}.buffer`, e.g. `gdax.buf
 
 The **Spout** service has the following responsabilities:
 
-- Take messages from the buffer
-- Apply a mapping to the message (see "Mappers" below)
+- Take messages from the Buffer
+- Apply a mapping to the message (see "Mapper" below)
 - Publish the message to the event bus via the channel/stream `{prefix}.{exchange}.{pair}` where `prefix` is by default `feed`; e.g. `feed.gdax.ETH-BTC`.
+
+Every instance of Spout is associated to a single buffer, which means you will have at least as many Spouts as exchanges you want to consume. You can scale Spouts if necessary, having multiple Spouts pointing to the same Buffer. It is guaranteed no duplicated messages will be processed.
 
 ### Mapper
 
-Mappers are not services but tiny modules that are imported and used by the Spout. They are currently very dumb at this point. Eventually they will probably grow to be responsible for mapping exchange-specific format to a normalized platform format.
+Mappers are not services but tiny modules that are imported and used by Spouts. They are currently very dumb at this point. Eventually they will probably grow to be responsible for mapping exchange-specific format to a normalized platform format.
 
 Depending on the exchange, they might filter some messages.
 
@@ -50,9 +54,9 @@ It is a Redis Pub/Sub and nothing else. Messages are `publish`ed by Spouts and c
 
 The **Bolt** service can be seen as a pipe or function. It subscribes to one or more channels in the event bus, receives a message, does some computation and emits another message in result.
 
-Bolts need to process incoming messages fast enough to not allow event bus buffering to build up. Otherwise they will be disconnected from the channel. It is recommended for bolts to not take more than 30ms, if they do you may want to fork the stream into a deferred one by having a bolt that puts messages into a buffer/queue and have another one that processes at its pace.
+> Bolts need to process incoming messages fast enough to not allow event bus buffering to build up. Otherwise they will be disconnected from the channel. It is recommended for bolts to not take more than **30ms**, if they do you may want to fork the stream into a deferred one by having a bolt that puts messages into a buffer/queue and have another one that processes at its pace.
 
-Current Exchanges
+Supported Exchanges
 -----------------
 
 * [GDAX](https://docs.gdax.com/#the-code-classprettyprinttickercode-channel)
@@ -68,19 +72,19 @@ Calculates highest, lowest, sum and average of all available stats, per currency
 
 ![Diagram](doc/aggr-ticker-bolt.png)
 
-#### What does it do
+#### How does it work
 
-1. Subscribes to all available source feeds, which Spouts publish under `feed.{exchange}.{pair}`
+1. Subscribes to all available feed channels, where Spouts publish messages under `feed.{exchange}.{pair}`
 
-2. Opens 1-minute and 1-second aggregation windows for every exchange, using a exchange-specific module that knows the format of the message (`aggr-binance`, `aggr-gdax`, `aggr-okex`)
+2. Opens 1-minute and 1-second aggregation windows for every exchange, using a exchange-specific module that knows the format of the message (e.g. `aggr-binance`, `aggr-gdax`, `aggr-okex`)
 
-3. Every incoming message is enqueued into both windows, which  stamp a set of common properties (see "Common Aggregated Format" below) and calculate the aggregated stats for every existing individual stat (see "Aggregation" below)
+3. Every incoming message is enqueued into both windows, which stamp a set of common properties (see "Common Aggregated Format" below) and calculate the aggregated stats for every individual stat (see "Aggregation" below)
 
 4. When each time window emits (every 1 minute and 1 second respectively), it
 
    4.1. Stores the stats in Redis under the key `{exchange}.{pair}.{1s|1m}.{timestamp}`, e.g. `gdax.ETH-BTC.1s.1522665224000`;
 
-   4.2. Sets an expiration for that key, by default 1 hour for second aggregation and 30 days for minute aggregation;
+   4.2. Sets an expiration for that key, by default 15 minutes for second aggregation and 15 days for minute aggregation;
 
    4.3. Publishes the stats back to the event bus via the channels `aggr.{1s|1m}.{exchange}.{pair}` and `aggr.{1s|1m}.{exchange}.all`, the latter containing all pairs in a single message. E.g. `aggr.1s.gdax.ETH-BTC` and `aggr.1s.gdax.all`.
 
@@ -102,20 +106,22 @@ The appended aggregated properties are stamped with the original stat name, pref
 
 ```json
 {
-  highest_best_ask: "673",
-  lowest_best_ask: "672.59",
-  sum_best_ask: "2691.59",
-  average_best_ask: "672.8975"
+  "highest_best_ask": "673",
+  "lowest_best_ask": "672.59",
+  "sum_best_ask": "2691.59",
+  "average_best_ask": "672.8975"
 }
 ```
 
-In turn, OKEX uses camelCaseNotation, so the output message would be:
+OKEX uses camelCaseNotation, so the output message (example for the `sell` stat) would be:
 
 ```json
-  highestSell: "0.0691",
-  lowestSell: "0.0691",
-  sumSell: "0.2073",
-  averageSell: "0.04606666666666666667"
+{
+  "highestSell": "0.0691",
+  "lowestSell": "0.0691",
+  "sumSell": "0.2073",
+  "averageSell": "0.04606666666666666667"
+}
 ```
 
 For a complete reference of the aggregated types and their properties, check [their type definitions](src/bolts/types.ts).
@@ -160,13 +166,12 @@ The platform includes all necessary defaults; in order to change any parameter y
 
 The structure of this file is:
 
-```json
+```js
 {
   "name": "",   // process name
   "script": "", // script name
   "env": {      // environment variables
-                // here's what you probably
-                //           want to change
+                // here's what you probably want to change
   }
 },
 ```

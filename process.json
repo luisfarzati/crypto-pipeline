@@ -62,7 +62,7 @@
                 "REDIS_PUB_CHANNEL_PREFIX": "aggr",
                 "REDIS_HOST": "redis",
                 "EXPIRATION_SECONDS": 900,
-                "EXPIRATION_MINUTES": 1800
+                "EXPIRATION_MINUTES": 1296000
             }
         },
         {
