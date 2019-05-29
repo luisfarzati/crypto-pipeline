@@ -1,4 +1,4 @@
-FROM node:alpine as builder
+FROM node:8 as builder
 
 WORKDIR /src
 
@@ -10,7 +10,7 @@ COPY ./ ./
 
 RUN ./node_modules/.bin/tsc
 
-FROM keymetrics/pm2:latest-alpine as runtime
+FROM keymetrics/pm2:8 as runtime
 
 RUN apk add --update libc6-compat
 
