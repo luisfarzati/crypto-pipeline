@@ -3,6 +3,65 @@ crypto-pipeline
 
 A platform for real-time ingestion and processing of cryptocurrency trading events, built with TypeScript, Node.js and Redis.
 
+Running the platform
+--------------------
+
+### Prerequisites
+
+You need [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
+
+### Configuration
+
+The platform includes all necessary defaults; in order to change any parameter you need to edit the `process.json` file.
+
+The structure of this file is:
+
+```js
+{
+  "name": "",   // process name
+  "script": "", // script name
+  "env": {      // environment variables
+                // here's what you probably want to change
+  }
+},
+```
+
+The following is a table of configuration values:
+
+| Process | Variable name | Example | Description |
+| --- | --- | --- | --- |
+| `gdax-source` | `PAIRS` | `["BTC-USD","LTC-USD"]` | Pairs to subscribe for notifications |
+| `okex-source` | `PAIRS` | `["btc_usdt","eth_usdt"]` | Pairs to subscribe for notifications |
+| `aggr-ticker-bolt` | `EXPIRATION_SECONDS` | `900` | Expiration time (in seconds) for 1-second aggregation data |
+| `aggr-ticker-bolt` | `EXPIRATION_MINUTES` | `1800` | Expiration time (in seconds) for 1-minute aggregation data |
+
+### Start
+
+```bash
+$ docker-compose up -d --build
+```
+
+To see logs, you can type
+
+```bash
+$ docker-compose logs
+```
+
+You can also open the monitor dashboard by opening a browser at http://localhost:3000, and the web console at http://localhost:7980.
+
+### Stop and resume
+
+```bash
+$ docker-compose stop
+$ docker-compose start
+```
+
+### Stop and destroy all containers
+
+```bash
+$ docker-compose down
+```
+
 Architecture
 ------------
 
@@ -188,62 +247,3 @@ This metric is very important and shows the size of the buffers. When running th
 #### Command Calls / sec
 
 This shows the number of Redis commands being executed, disaggregated by command. This should always look steady.
-
-Running the platform
---------------------
-
-### Prerequisites
-
-You need [Docker](https://docs.docker.com/install/) and [Docker Compose](https://docs.docker.com/compose/install/) installed.
-
-### Configuration
-
-The platform includes all necessary defaults; in order to change any parameter you need to edit the `process.json` file.
-
-The structure of this file is:
-
-```js
-{
-  "name": "",   // process name
-  "script": "", // script name
-  "env": {      // environment variables
-                // here's what you probably want to change
-  }
-},
-```
-
-The following is a table of configuration values:
-
-| Process | Variable name | Example | Description |
-| --- | --- | --- | --- |
-| `gdax-source` | `PAIRS` | `["BTC-USD","LTC-USD"]` | Pairs to subscribe for notifications |
-| `okex-source` | `PAIRS` | `["btc_usdt","eth_usdt"]` | Pairs to subscribe for notifications |
-| `aggr-ticker-bolt` | `EXPIRATION_SECONDS` | `900` | Expiration time (in seconds) for 1-second aggregation data |
-| `aggr-ticker-bolt` | `EXPIRATION_MINUTES` | `1800` | Expiration time (in seconds) for 1-minute aggregation data |
-
-### Start
-
-```bash
-$ docker-compose up -d --build
-```
-
-To see logs, you can type
-
-```bash
-$ docker-compose logs
-```
-
-You can also open the monitor dashboard by opening a browser at http://localhost:3000, and the web console at http://localhost:7980.
-
-### Stop and resume
-
-```bash
-$ docker-compose stop
-$ docker-compose start
-```
-
-### Stop and destroy all containers
-
-```bash
-$ docker-compose down
-```
