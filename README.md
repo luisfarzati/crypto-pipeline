@@ -10,13 +10,6 @@ This is a web application that allows the user to consume the stream very easily
 
 ![Screenshot](doc/web-console-screenshot.png)
 
-### How does it work
-
-<img src="doc/web-console.png" width="400">
-
-The app server subscribes to the 1-second aggregated channel and sends the data to the client via WebSockets. The client invokes the user's function handler passing the message as argument.
-
-The helper functions `print` and `clear` allows to write output.
 
 Monitoring
 ----------
